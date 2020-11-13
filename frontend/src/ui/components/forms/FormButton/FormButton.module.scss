@@ -1,0 +1,18 @@
+@import "@ui/variables";
+
+.button {
+  position: relative;
+  width: 100%;
+
+  @media (min-width: $breakpoint-md) {
+    width: auto;
+  }
+}
+
+.progress {
+  position: absolute;
+
+  svg {
+    color: #919191;
+  }
+}

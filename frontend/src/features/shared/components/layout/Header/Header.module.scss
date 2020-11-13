@@ -1,0 +1,46 @@
+@import "@ui/variables";
+
+.collapse {
+  display: flex;
+  align-items: center;
+}
+
+.drawer {
+  @media (min-width: $breakpoint-lg) {
+    display: none;
+  }
+}
+
+.drawerBody {
+  min-width: 200px;
+}
+
+.expand {
+  display: none;
+
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+  }
+}
+
+.menuButton {
+  border: 0;
+  padding: 5px 5px 5px 5px;
+  margin-right: -5px;
+  margin-left: auto;
+  background: transparent;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    display: none;
+  }
+}
+
+.wrapper {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

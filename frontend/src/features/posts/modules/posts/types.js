@@ -1,0 +1,17 @@
+export const SET_CURRENT_POST = "posts/SET_CURRENT_POST";
+
+export const FETCH_POST_REQUEST = "posts/FETCH_POST_REQUEST";
+export const FETCH_POST_SUCCESS = "posts/FETCH_POST_SUCCESS";
+export const FETCH_POST_FAILURE = "posts/FETCH_POST_FAILURE";
+
+export const FETCH_NEWS_REQUEST = "posts/FETCH_NEWS_REQUEST";
+export const FETCH_NEWS_SUCCESS = "posts/FETCH_NEWS_SUCCESS";
+
+export const SET_NEWS_PAGE = "posts/SET_NEWS_PAGE";
+
+export const FETCH_ATTACHED_POSTS_REQUEST =
+  "posts/FETCH_ATTACHED_POSTS_REQUEST";
+export const FETCH_ATTACHED_POSTS_SUCCESS =
+  "posts/FETCH_ATTACHED_POSTS_SUCCESS";
+
+export const APPEND_POSTS = "posts/APPEND_POSTS";

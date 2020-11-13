@@ -1,0 +1,10 @@
+@import "@ui/variables";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}

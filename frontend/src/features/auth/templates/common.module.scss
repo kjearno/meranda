@@ -1,0 +1,15 @@
+@import "@ui/variables";
+
+.wrapper {
+  margin-bottom: 2rem;
+
+  @media (min-width: $breakpoint-lg) {
+    margin-bottom: 0;
+  }
+}
+
+.children {
+  @media (min-width: $breakpoint-md) {
+    max-width: 80%;
+  }
+}

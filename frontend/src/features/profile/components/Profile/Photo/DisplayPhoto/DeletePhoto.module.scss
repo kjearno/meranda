@@ -1,0 +1,15 @@
+.deleteButton {
+  svg {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.window {
+  max-width: 300px;
+  padding: 20px 15px;
+  text-align: center;
+
+  > p {
+    margin-bottom: 0.5rem;
+  }
+}

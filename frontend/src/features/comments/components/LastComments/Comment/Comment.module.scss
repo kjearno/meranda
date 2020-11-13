@@ -1,0 +1,35 @@
+.body {
+  max-width: 180px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.entry {
+  display: flex;
+  max-width: 210px;
+  margin-bottom: 30px;
+}
+
+.number {
+  flex: 0 0 50px;
+  align-self: flex-start;
+
+  color: #ccc;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.text {
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  overflow-wrap: break-word;
+}
+
+.meta {
+  color: #b4b4b4;
+  font-size: 0.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+}

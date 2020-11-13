@@ -1,0 +1,27 @@
+@import "./sticky-footer.css";
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  color: grey;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+a {
+  color: #000;
+  text-decoration: underline;
+
+  &:hover {
+    color: #78ad39 !important;
+    transition: 0.3s all ease;
+  }
+}
+
+#main {
+  padding: 0 0.5rem;
+}

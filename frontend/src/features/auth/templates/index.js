@@ -1,0 +1,1 @@
+export { AuthTemplate } from "./common";

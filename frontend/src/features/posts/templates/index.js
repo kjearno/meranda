@@ -1,0 +1,1 @@
+export { PostTemplate } from "./common";

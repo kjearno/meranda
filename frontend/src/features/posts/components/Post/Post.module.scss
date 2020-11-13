@@ -1,0 +1,40 @@
+.post {
+  overflow-wrap: break-word;
+}
+
+.photo {
+  margin-bottom: 3rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.title {
+  margin-bottom: 1.5rem;
+
+  color: #000;
+  font-size: 2rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  font-size: 0.8rem;
+
+  a {
+    text-decoration: none;
+  }
+
+  .date {
+    color: #b4b4b4;
+  }
+}
+
+.text {
+  line-height: 1.7;
+}

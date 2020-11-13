@@ -1,0 +1,37 @@
+@import "@ui/variables";
+
+.list {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+  }
+}
+
+.item {
+  white-space: nowrap;
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 !important;
+
+    :last-child {
+      margin-right: -16px;
+    }
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @media (min-width: $breakpoint-lg) {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
