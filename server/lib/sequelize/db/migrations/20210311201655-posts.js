@@ -1,41 +1,53 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("users", {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable("posts", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      email: {
+      title: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      slug: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
       },
-      password: {
-        type: Sequelize.STRING,
+      text: {
+        type: Sequelize.TEXT,
         allowNull: false,
       },
-      username: {
+      description: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       photo: Sequelize.STRING,
-      is_active: {
+      thumbnail: Sequelize.STRING,
+      is_attached: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
-      is_admin: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
-      role_id: {
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        onDelete: "CASCADE",
         references: {
           model: {
-            tableName: "roles",
+            tableName: "users",
+          },
+          key: "id",
+        },
+      },
+      category_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: "CASCADE",
+        references: {
+          model: {
+            tableName: "categories",
           },
           key: "id",
         },
@@ -51,7 +63,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("users");
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable("posts");
   },
 };

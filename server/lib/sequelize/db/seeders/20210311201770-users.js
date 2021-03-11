@@ -1,13 +1,13 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert(
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert(
       "users",
       [
         {
-          email: "asd23@mail.com",
+          email: "admin@mail.com",
           password:
-            "$2a$12$qSrNtNu.DDH6ieXolQdBDOcECUypFzWWSN12WpdbzTqzRLBagqVBO",
-          username: "asd23",
+            "$2a$12$B78b4Ri9Gm2qLOH6nDqiJ.lEtiLQwe8qAgMbH0eo4LaQjesWw4sju",
+          username: "admin",
           photo:
             "https://secure-retreat-39463.herokuapp.com/uploads/users/photos/1602375378354.jpg",
           is_active: true,
@@ -34,7 +34,7 @@ module.exports = {
     );
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("users", null, {});
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete("users", null, {});
   },
 };

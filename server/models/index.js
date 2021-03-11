@@ -4,21 +4,20 @@ const fs = require("fs");
 const path = require("path");
 const { Sequelize, DataTypes } = require("sequelize");
 
+const env = process.env.NODE_ENV || "development";
+const config = require("../lib/sequelize/db/config")[env];
+
 const basename = path.basename(__filename);
 const db = {};
 
-// Database connection
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
-});
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
 
-// Test Database connection
-if (process.env.NODE_ENV === "development") {
+if (env === "development") {
   const testConnection = async () => {
     try {
       await sequelize.authenticate();
