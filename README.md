@@ -2,9 +2,9 @@
 
 ![react-nodejs](https://user-images.githubusercontent.com/39556179/98289959-c3935680-1fca-11eb-8d16-26a98001aea5.png)
 
-This repository contains frontend and backend parts of the [SPA blog](https://komilt.github.io/meranda/).
+This repository contains client and server parts of the [SPA blog](https://komilt.github.io/meranda/).
 
-## Front-end
+## client
 
 - SPA (Single Page Application)
 - React
@@ -13,7 +13,7 @@ This repository contains frontend and backend parts of the [SPA blog](https://ko
 
 > This application also contains an admin panel. Check it out by following [this](https://komilt.github.io/meranda/admin) link.<br> Username: test, Password: test.<br><br> **Be aware**: for security reasons, while you're using a test account, you cannot do dangerous operations, such as creating, editing and deleting. Just reading.
 
-## Back-end
+## server
 
 - REST API
 - Node.js
