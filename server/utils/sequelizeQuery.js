@@ -1,13 +1,13 @@
-const AppError = require('./AppError');
+const AppError = require("./AppError");
 
-const sort = query => {
-  const sortField = query.sort || 'id';
-  const sortBy = query.sortBy || 'DESC';
+const sort = (query) => {
+  const sortField = query.sort || "id";
+  const sortBy = query.sortBy || "DESC";
 
   return [[sortField, sortBy]];
 };
 
-const paginate = query => {
+const paginate = (query) => {
   const page = query.page || 1;
   const limit = query.limit || 10;
 
@@ -19,14 +19,14 @@ const paginate = query => {
 
   return {
     limit,
-    offset
+    offset,
   };
 };
 
-exports.getOptions = query => {
+exports.getOptions = (query) => {
   const queryCopy = { ...query };
-  const excludedFields = ['sort', 'sortBy', 'page', 'limit'];
-  excludedFields.forEach(field => delete queryCopy[field]);
+  const excludedFields = ["sort", "sortBy", "page", "limit"];
+  excludedFields.forEach((field) => delete queryCopy[field]);
 
   if (queryCopy.id) {
     queryCopy.id = JSON.parse(queryCopy.id);
@@ -36,6 +36,6 @@ exports.getOptions = query => {
     where: queryCopy,
     order: sort(query),
     limit: paginate(query).limit,
-    offset: paginate(query).offset
+    offset: paginate(query).offset,
   };
 };

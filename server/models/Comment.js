@@ -1,38 +1,38 @@
 module.exports = (sequelize, DataTypes) => {
   const Comment = sequelize.define(
-    'Comment',
+    "Comment",
     {
       text: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
           notEmpty: {
-            msg: 'Comment text cannot be an empty string'
+            msg: "Comment text cannot be an empty string",
           },
           notNull: {
-            msg: 'Enter your comment text'
-          }
-        }
+            msg: "Enter your comment text",
+          },
+        },
       },
       userId: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       postId: {
         type: DataTypes.INTEGER,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
-      tableName: 'comments',
-      underscored: true
+      tableName: "comments",
+      underscored: true,
     }
   );
 
   // Associations
-  Comment.associate = models => {
-    Comment.belongsTo(models.Post, { as: 'post' });
-    Comment.belongsTo(models.User, { as: 'user' });
+  Comment.associate = (models) => {
+    Comment.belongsTo(models.Post, { as: "post" });
+    Comment.belongsTo(models.User, { as: "user" });
   };
 
   return Comment;

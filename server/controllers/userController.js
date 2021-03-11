@@ -1,9 +1,9 @@
-const sharp = require('sharp');
-const { User } = require('../models');
-const AppError = require('../utils/AppError');
-const catchAsync = require('../utils/catchAsync');
-const { getOptions } = require('../utils/sequelizeQuery');
-const { handlePhoto } = require('../utils/photoHandler');
+const sharp = require("sharp");
+const { User } = require("../models");
+const AppError = require("../utils/AppError");
+const catchAsync = require("../utils/catchAsync");
+const { getOptions } = require("../utils/sequelizeQuery");
+const { handlePhoto } = require("../utils/photoHandler");
 
 exports.handlePhoto = () => {
   const handleUserPhoto = async (req, res, next) => {
@@ -22,7 +22,7 @@ exports.handlePhoto = () => {
 
     await sharp(file)
       .resize(300, 300)
-      .toFormat('jpg')
+      .toFormat("jpg")
       .toFile(`public${photoName}`);
 
     req.body.photo = process.env.BASE_URL + photoName;
@@ -53,7 +53,7 @@ exports.getUsers = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     count,
-    rows: users
+    rows: users,
   });
 });
 
@@ -64,7 +64,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
     email,
     password,
     username,
-    photo
+    photo,
   });
 
   res.status(201).json(user);
@@ -85,7 +85,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
     photo,
     isActive,
     isAdmin,
-    roleId
+    roleId,
   } = req.body;
 
   await user.update({
@@ -95,7 +95,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
     photo,
     isActive,
     isAdmin,
-    roleId
+    roleId,
   });
 
   res.status(200).json(user);
@@ -126,8 +126,8 @@ exports.deleteUsers = catchAsync(async (req, res, next) => {
 
   await User.destroy({
     where: {
-      id: JSON.parse(ids)
-    }
+      id: JSON.parse(ids),
+    },
   });
 
   res.status(204).json();
@@ -139,7 +139,7 @@ exports.updateUserPhoto = catchAsync(async (req, res, next) => {
   const { photo } = req.body;
 
   await user.update({
-    photo
+    photo,
   });
 
   res.status(200).json(user);
@@ -150,7 +150,7 @@ exports.updateUserPassword = catchAsync(async (req, res, next) => {
   const { currentPassword, newPassword } = req.body;
 
   if (!currentPassword || !newPassword) {
-    throw new AppError('Fill in all the fields', 400);
+    throw new AppError("Fill in all the fields", 400);
   }
 
   const isValidPassword = await user.comparePassword(
@@ -159,7 +159,7 @@ exports.updateUserPassword = catchAsync(async (req, res, next) => {
   );
 
   if (!isValidPassword) {
-    throw new AppError('The current password is invalid', 400);
+    throw new AppError("The current password is invalid", 400);
   }
 
   await user.update({ password: newPassword });

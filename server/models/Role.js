@@ -1,23 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
   const Role = sequelize.define(
-    'Role',
+    "Role",
     {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notEmpty: {
-            msg: 'Role name cannot be an empty string'
+            msg: "Role name cannot be an empty string",
           },
           notNull: {
-            msg: 'Enter a role name'
-          }
-        }
-      }
+            msg: "Enter a role name",
+          },
+        },
+      },
     },
     {
-      tableName: 'roles',
-      underscored: true
+      tableName: "roles",
+      underscored: true,
     }
   );
 

@@ -1,23 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
   const Subscriber = sequelize.define(
-    'Subscriber',
+    "Subscriber",
     {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           isEmail: {
-            msg: 'Enter email in the correct format'
+            msg: "Enter email in the correct format",
           },
           notNull: {
-            msg: 'Enter email'
-          }
-        }
-      }
+            msg: "Enter email",
+          },
+        },
+      },
     },
     {
-      tableName: 'subscribers',
-      underscored: true
+      tableName: "subscribers",
+      underscored: true,
     }
   );
 

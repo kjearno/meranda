@@ -1,49 +1,49 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      'comments',
+      "comments",
       [
         {
-          text: 'Wow!',
+          text: "Wow!",
           user_id: 1,
           post_id: 11,
           created_at: new Date(),
-          updated_at: new Date()
+          updated_at: new Date(),
         },
         {
-          text: 'Awesome!',
+          text: "Awesome!",
           user_id: 1,
           post_id: 11,
           created_at: new Date(),
-          updated_at: new Date()
+          updated_at: new Date(),
         },
         {
-          text: 'Very interesting, thanks for posting!',
+          text: "Very interesting, thanks for posting!",
           user_id: 1,
           post_id: 9,
           created_at: new Date(),
-          updated_at: new Date()
+          updated_at: new Date(),
         },
         {
-          text: 'Amazing!',
+          text: "Amazing!",
           user_id: 1,
           post_id: 9,
           created_at: new Date(),
-          updated_at: new Date()
+          updated_at: new Date(),
         },
         {
-          text: 'I completely agree with everything written in the article.',
+          text: "I completely agree with everything written in the article.",
           user_id: 1,
           post_id: 9,
           created_at: new Date(),
-          updated_at: new Date()
-        }
+          updated_at: new Date(),
+        },
       ],
       {}
     );
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('comments', null, {});
-  }
+    return queryInterface.bulkDelete("comments", null, {});
+  },
 };

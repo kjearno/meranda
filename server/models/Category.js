@@ -1,36 +1,36 @@
-const SequelizeSlugify = require('sequelize-slugify');
+const SequelizeSlugify = require("sequelize-slugify");
 
 module.exports = (sequelize, DataTypes) => {
   const Category = sequelize.define(
-    'Category',
+    "Category",
     {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notEmpty: {
-            msg: 'Category name cannot be an empty string'
+            msg: "Category name cannot be an empty string",
           },
           notNull: {
-            msg: 'Enter a category name'
-          }
-        }
+            msg: "Enter a category name",
+          },
+        },
       },
-      slug: DataTypes.STRING
+      slug: DataTypes.STRING,
     },
     {
-      tableName: 'categories',
-      underscored: true
+      tableName: "categories",
+      underscored: true,
     }
   );
 
   SequelizeSlugify.slugifyModel(Category, {
-    source: ['name']
+    source: ["name"],
   });
 
   // Associations
-  Category.associate = models => {
-    Category.hasMany(models.Post, { as: 'posts', foreignKey: 'categoryId' });
+  Category.associate = (models) => {
+    Category.hasMany(models.Post, { as: "posts", foreignKey: "categoryId" });
   };
 
   return Category;

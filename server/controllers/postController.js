@@ -1,9 +1,9 @@
-const sharp = require('sharp');
-const { Post, Category, Comment, User } = require('../models');
-const AppError = require('../utils/AppError');
-const catchAsync = require('../utils/catchAsync');
-const { getOptions } = require('../utils/sequelizeQuery');
-const { handlePhoto } = require('../utils/photoHandler');
+const sharp = require("sharp");
+const { Post, Category, Comment, User } = require("../models");
+const AppError = require("../utils/AppError");
+const catchAsync = require("../utils/catchAsync");
+const { getOptions } = require("../utils/sequelizeQuery");
+const { handlePhoto } = require("../utils/photoHandler");
 
 exports.handlePhoto = () => {
   const handlePostPhoto = async (req, res, next) => {
@@ -22,7 +22,7 @@ exports.handlePhoto = () => {
 
     await sharp(file)
       .resize(600, 350)
-      .toFormat('jpg')
+      .toFormat("jpg")
       .toFile(`public${photoName}`);
 
     const thumbnailName = `${photoName.slice(0, -4)}-mini${photoName.slice(
@@ -31,7 +31,7 @@ exports.handlePhoto = () => {
 
     await sharp(file)
       .resize(500, 300)
-      .toFormat('jpg')
+      .toFormat("jpg")
       .toFile(`public${thumbnailName}`);
 
     req.body.photo = process.env.BASE_URL + photoName;
@@ -46,7 +46,7 @@ exports.handlePhoto = () => {
 exports.getPost = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const post = await Post.findByPk(id, {
-    include: [{ model: User, as: 'user' }]
+    include: [{ model: User, as: "user" }],
   });
 
   if (!post) {
@@ -62,20 +62,20 @@ exports.getPosts = catchAsync(async (req, res, next) => {
   const posts = await Post.findAll({
     ...options,
     include: [
-      { model: Category, as: 'category' },
+      { model: Category, as: "category" },
       {
         model: Comment,
-        as: 'comments',
-        include: [{ model: User, as: 'user' }]
+        as: "comments",
+        include: [{ model: User, as: "user" }],
       },
-      { model: User, as: 'user' }
-    ]
+      { model: User, as: "user" },
+    ],
   });
   const count = await Post.count({ where: options.where });
 
   res.status(200).json({
     count,
-    rows: posts
+    rows: posts,
   });
 });
 
@@ -89,7 +89,7 @@ exports.createPost = catchAsync(async (req, res, next) => {
     photo,
     isAttached,
     userId,
-    categoryId
+    categoryId,
   });
 
   res.status(201).json(post);
@@ -110,7 +110,7 @@ exports.updatePost = catchAsync(async (req, res, next) => {
     text,
     photo,
     isAttached,
-    categoryId
+    categoryId,
   });
 
   res.status(200).json(post);
@@ -141,8 +141,8 @@ exports.deletePosts = catchAsync(async (req, res, next) => {
 
   await Post.destroy({
     where: {
-      id: JSON.parse(ids)
-    }
+      id: JSON.parse(ids),
+    },
   });
 
   res.status(204).json();

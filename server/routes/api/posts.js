@@ -1,11 +1,11 @@
-const express = require('express');
-const authController = require('../../controllers/authController');
-const postController = require('../../controllers/postController');
+const express = require("express");
+const authController = require("../../controllers/authController");
+const postController = require("../../controllers/postController");
 
 const router = express.Router();
 
 router
-  .route('/')
+  .route("/")
   .get(postController.getPosts)
   .post(
     authController.protect,
@@ -15,7 +15,7 @@ router
   .delete(authController.protect, postController.deletePosts);
 
 router
-  .route('/:id')
+  .route("/:id")
   .get(postController.getPost)
   .patch(
     authController.protect,

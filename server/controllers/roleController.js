@@ -1,6 +1,6 @@
-const { Role } = require('../models');
-const catchAsync = require('../utils/catchAsync');
-const { getOptions } = require('../utils/sequelizeQuery');
+const { Role } = require("../models");
+const catchAsync = require("../utils/catchAsync");
+const { getOptions } = require("../utils/sequelizeQuery");
 
 exports.getRoles = catchAsync(async (req, res, next) => {
   const options = getOptions(req.query);
@@ -10,6 +10,6 @@ exports.getRoles = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     count,
-    rows: roles
+    rows: roles,
   });
 });

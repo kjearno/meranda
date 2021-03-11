@@ -1,16 +1,16 @@
-const { Comment, Category, Post, User } = require('../models');
-const AppError = require('../utils/AppError');
-const catchAsync = require('../utils/catchAsync');
-const { getOptions } = require('../utils/sequelizeQuery');
+const { Comment, Category, Post, User } = require("../models");
+const AppError = require("../utils/AppError");
+const catchAsync = require("../utils/catchAsync");
+const { getOptions } = require("../utils/sequelizeQuery");
 
 // CRUD
 exports.getComment = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const comment = await Comment.findByPk(id, {
     include: [
-      { model: User, as: 'user' },
-      { model: Post, as: 'post' }
-    ]
+      { model: User, as: "user" },
+      { model: Post, as: "post" },
+    ],
   });
 
   if (!comment) {
@@ -28,20 +28,20 @@ exports.getComments = catchAsync(async (req, res, next) => {
     include: [
       {
         model: Post,
-        as: 'post',
-        include: [{ model: Category, as: 'category' }]
+        as: "post",
+        include: [{ model: Category, as: "category" }],
       },
       {
         model: User,
-        as: 'user'
-      }
-    ]
+        as: "user",
+      },
+    ],
   });
   const count = await Comment.count({ where: options.where });
 
   res.status(200).json({
     count,
-    rows: comments
+    rows: comments,
   });
 });
 
@@ -49,7 +49,7 @@ exports.createComment = catchAsync(async (req, res, next) => {
   const commentData = {
     text: req.body.text,
     postId: req.body.postId,
-    userId: req.user.id
+    userId: req.user.id,
   };
 
   const comment = await Comment.create(commentData);
@@ -67,7 +67,7 @@ exports.updateComment = catchAsync(async (req, res, next) => {
 
   const { text } = req.body;
   await comment.update({
-    text
+    text,
   });
 
   res.status(200).json(comment);
@@ -98,8 +98,8 @@ exports.deleteComments = catchAsync(async (req, res, next) => {
 
   await Comment.destroy({
     where: {
-      id: JSON.parse(ids)
-    }
+      id: JSON.parse(ids),
+    },
   });
 
   res.status(204).json();
@@ -110,23 +110,23 @@ exports.sendComment = catchAsync(async (req, res, next) => {
   const commentData = {
     text: req.body.text,
     postId: req.body.postId,
-    userId: req.user.id
+    userId: req.user.id,
   };
 
   const createdComment = await Comment.create(commentData);
 
   const comment = await Comment.findOne({
     where: {
-      id: createdComment.id
+      id: createdComment.id,
     },
     include: [
-      { model: User, as: 'user' },
+      { model: User, as: "user" },
       {
         model: Post,
-        as: 'post',
-        include: [{ model: Category, as: 'category' }]
-      }
-    ]
+        as: "post",
+        include: [{ model: Category, as: "category" }],
+      },
+    ],
   });
 
   res.status(201).json(comment);

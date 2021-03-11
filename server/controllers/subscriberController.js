@@ -1,7 +1,7 @@
-const { Subscriber } = require('../models');
-const AppError = require('../utils/AppError');
-const catchAsync = require('../utils/catchAsync');
-const { getOptions } = require('../utils/sequelizeQuery');
+const { Subscriber } = require("../models");
+const AppError = require("../utils/AppError");
+const catchAsync = require("../utils/catchAsync");
+const { getOptions } = require("../utils/sequelizeQuery");
 
 // CRUD
 exports.getSubscriber = catchAsync(async (req, res, next) => {
@@ -23,7 +23,7 @@ exports.getSubscribers = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     count,
-    rows: subscribers
+    rows: subscribers,
   });
 });
 
@@ -46,7 +46,7 @@ exports.updateSubscriber = catchAsync(async (req, res, next) => {
   const { email } = req.body;
 
   await subscriber.update({
-    email
+    email,
   });
 
   res.status(200).json(subscriber);
@@ -77,8 +77,8 @@ exports.deleteSubscribers = catchAsync(async (req, res, next) => {
 
   await Subscriber.destroy({
     where: {
-      id: JSON.parse(ids)
-    }
+      id: JSON.parse(ids),
+    },
   });
 
   res.status(204).json();

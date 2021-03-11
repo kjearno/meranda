@@ -1,23 +1,23 @@
-const express = require('express');
-const multer = require('multer');
-const authController = require('../../controllers/authController');
-const commentController = require('../../controllers/commentController');
+const express = require("express");
+const multer = require("multer");
+const authController = require("../../controllers/authController");
+const commentController = require("../../controllers/commentController");
 
 const router = express.Router();
 const upload = multer();
 
 // Additional
-router.post('/me', authController.checkAuth, commentController.sendComment);
+router.post("/me", authController.checkAuth, commentController.sendComment);
 
 // CRUD
 router
-  .route('/')
+  .route("/")
   .get(commentController.getComments)
   .post(authController.protect, commentController.createComment)
   .delete(authController.protect, commentController.deleteComments);
 
 router
-  .route('/:id')
+  .route("/:id")
   .get(commentController.getComment)
   .patch(authController.protect, upload.none(), commentController.updateComment)
   .delete(authController.protect, commentController.deleteComment);
