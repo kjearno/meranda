@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const hpp = require("hpp");
+require("module-alias/register");
 
 const globalErrorHandler = require("./controllers/errorController");
 const AppError = require("./utils/AppError");
