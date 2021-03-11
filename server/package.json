@@ -17,7 +17,7 @@
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.2",
     "prettier": "2.2.1",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
     "accesscontrol": "^2.2.1",
@@ -30,10 +30,10 @@
     "hpp": "^0.2.2",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
-    "pg": "^7.15.1",
+    "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.11",
-    "sequelize-slugify": "^0.9.1",
+    "sequelize": "^6.5.0",
+    "sequelize-slugify": "^1.5.0",
     "sharp": "^0.24.1"
   },
   "engines": {
