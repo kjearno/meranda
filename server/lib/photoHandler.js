@@ -1,5 +1,5 @@
 const multer = require("multer");
-const AppError = require("./AppError");
+const { AppError } = require("@lib/errors");
 
 const storage = multer.memoryStorage();
 
@@ -9,7 +9,7 @@ function fileFilter(req, file, cb) {
 
   if (!allowedFormats.includes(uploadedFormat)) {
     return cb(
-      new AppError("Not an image! Please upload only images", 400),
+      new AppError(400, "Not an image! Please upload only images"),
       false
     );
   }

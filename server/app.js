@@ -3,10 +3,10 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const hpp = require("hpp");
+require("express-async-errors");
 require("module-alias/register");
 
-const globalErrorHandler = require("./controllers/errorController");
-const AppError = require("./utils/AppError");
+const { AppError, errorHandler } = require("@lib/errors");
 
 // Routes
 const authRouter = require("./routes/api/auth");
@@ -21,7 +21,7 @@ const app = express();
 
 app.enable("trust proxy");
 
-// 1) Global Middleware
+// 1) Global middleware
 app.use(helmet());
 app.use(
   cors({
@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(hpp());
 
-// 2) API Routes
+// 2) API routes
 app.use("/api/auth", authRouter);
 app.use("/api/categories", categoriesRouter);
 app.use("/api/comments", commentsRouter);
@@ -44,12 +44,10 @@ app.use("/api/roles", rolesRouter);
 app.use("/api/subscribers", subscribersRouter);
 app.use("/api/users", usersRouter);
 
-// 3) Other Routes
-app.all("*", (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl}`, 404));
+app.all("*", (req, res) => {
+  throw new AppError(404, `Can't find ${req.originalUrl}`);
 });
 
-// 4) Error Controller
-app.use(globalErrorHandler);
+app.use(errorHandler);
 
 module.exports = app;
