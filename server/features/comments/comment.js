@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Associations
+  // associations
   Comment.associate = (models) => {
     Comment.belongsTo(models.Post, { as: "post" });
     Comment.belongsTo(models.User, { as: "user" });

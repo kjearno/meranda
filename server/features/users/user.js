@@ -73,13 +73,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Associations
+  // associations
   User.associate = (models) => {
     User.belongsTo(models.Role, { as: "role" });
     User.hasMany(models.Comment, { as: "comments", foreignKey: "userId" });
   };
 
-  // Hooks
+  // hooks
   User.beforeSave(async (user) => {
     if (user.changed("email")) {
       user.email = user.email.toLowerCase();
@@ -91,7 +91,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  // Instance methods
+  // instance methods
   User.prototype.comparePassword = async (plainPassword, hashedPassword) => {
     return bcrypt.compare(plainPassword, hashedPassword);
   };

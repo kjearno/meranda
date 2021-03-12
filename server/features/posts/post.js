@@ -57,14 +57,14 @@ module.exports = (sequelize, DataTypes) => {
     source: ["title"],
   });
 
-  // Associations
+  // associations
   Post.associate = (models) => {
     Post.belongsTo(models.Category, { as: "category" });
     Post.belongsTo(models.User, { as: "user" });
     Post.hasMany(models.Comment, { as: "comments", foreignKey: "postId" });
   };
 
-  // Hooks
+  // hooks
   Post.beforeSave((post) => {
     if (post.changed("text")) {
       const { text } = post;

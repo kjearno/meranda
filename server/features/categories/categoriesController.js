@@ -1,22 +1,8 @@
-const { Category, Comment, Post, User } = require("../models");
-const AppError = require("../utils/AppError");
-const catchAsync = require("../utils/catchAsync");
-const { getOptions } = require("../utils/sequelizeQuery");
+const { AppError } = require("@lib/errors");
+const { Category, Comment, Post, User, parseQuery } = require("@lib/sequelize");
 
-// CRUD
-exports.getCategory = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
-  const category = await Category.findByPk(id);
-
-  if (!category) {
-    throw new AppError(`Category with id ${id} not found`, 404);
-  }
-
-  res.status(200).json(category);
-});
-
-exports.getCategories = catchAsync(async (req, res, next) => {
-  const options = getOptions(req.query);
+exports.getCategories = async (req, res) => {
+  const options = parseQuery(req);
 
   const categories = await Category.findAll(options);
   const count = await Category.count({ where: options.where });
@@ -25,9 +11,9 @@ exports.getCategories = catchAsync(async (req, res, next) => {
     count,
     rows: categories,
   });
-});
+};
 
-exports.createCategory = catchAsync(async (req, res, next) => {
+exports.createCategory = async (req, res) => {
   const { name } = req.body;
 
   const category = await Category.create({
@@ -35,44 +21,15 @@ exports.createCategory = catchAsync(async (req, res, next) => {
   });
 
   res.status(201).json(category);
-});
+};
 
-exports.updateCategory = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
-  const category = await Category.findByPk(id);
-
-  if (!category) {
-    throw new AppError(`Category with id ${id} not found`, 404);
-  }
-
-  const { name } = req.body;
-  await category.update({
-    name,
-  });
-
-  res.status(200).json(category);
-});
-
-exports.deleteCategory = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
-  const category = await Category.findByPk(id);
-
-  if (!category) {
-    throw new AppError(`Category with id ${id} not found`, 404);
-  }
-
-  await category.destroy();
-
-  res.status(204).json();
-});
-
-exports.deleteCategories = catchAsync(async (req, res, next) => {
+exports.deleteCategories = async (req, res) => {
   const { ids } = req.query;
 
   if (!ids) {
     throw new AppError(
-      'Enter category "ids" in query parameters. Example: /categories?ids=[1,2]',
-      400
+      400,
+      'Enter category "ids" in query parameters. Example: /categories?ids=[1,2]'
     );
   }
 
@@ -83,10 +40,50 @@ exports.deleteCategories = catchAsync(async (req, res, next) => {
   });
 
   res.status(204).json();
-});
+};
 
-// Additional
-exports.getPostFromCategory = catchAsync(async (req, res, next) => {
+exports.getCategory = async (req, res) => {
+  const { id } = req.params;
+  const category = await Category.findByPk(id);
+
+  if (!category) {
+    throw new AppError(404, `Category with id ${id} not found`);
+  }
+
+  res.status(200).json(category);
+};
+
+exports.updateCategory = async (req, res) => {
+  const { id } = req.params;
+  const category = await Category.findByPk(id);
+
+  if (!category) {
+    throw new AppError(404, `Category with id ${id} not found`);
+  }
+
+  const { name } = req.body;
+  await category.update({
+    name,
+  });
+
+  res.status(200).json(category);
+};
+
+exports.deleteCategory = async (req, res) => {
+  const { id } = req.params;
+  const category = await Category.findByPk(id);
+
+  if (!category) {
+    throw new AppError(404, `Category with id ${id} not found`);
+  }
+
+  await category.destroy();
+
+  res.status(204).json();
+};
+
+// additional
+exports.getPostFromCategory = async (req, res) => {
   const { category: categorySlug, post: postSlug } = req.params;
 
   const category = await Category.findOne({
@@ -117,16 +114,16 @@ exports.getPostFromCategory = catchAsync(async (req, res, next) => {
 
   if (!post) {
     throw new AppError(
-      `Post for "/categories/${categorySlug}/posts/${postSlug}" not found`,
-      404
+      404,
+      `Post for "/categories/${categorySlug}/posts/${postSlug}" not found`
     );
   }
 
   res.status(200).json(post);
-});
+};
 
-exports.getPostsFromCategory = catchAsync(async (req, res, next) => {
-  const options = getOptions(req.query);
+exports.getPostsFromCategory = async (req, res) => {
+  const options = parseQuery(req);
   const { category: categorySlug } = req.params;
 
   const category = await Category.findOne({
@@ -147,7 +144,7 @@ exports.getPostsFromCategory = catchAsync(async (req, res, next) => {
   });
 
   if (!category) {
-    throw new AppError(`Category for "${categorySlug}" not found`, 404);
+    throw new AppError(404, `Category for "${categorySlug}" not found`);
   }
 
   const postsCount = await Post.count({
@@ -159,4 +156,4 @@ exports.getPostsFromCategory = catchAsync(async (req, res, next) => {
   category.set("postsCount", postsCount, { raw: true });
 
   res.status(200).json(category);
-});
+};

@@ -6,16 +6,15 @@ const hpp = require("hpp");
 require("express-async-errors");
 require("module-alias/register");
 
-const { AppError, errorHandler } = require("@lib/errors");
+const { authRouter } = require("@features/auth");
+const { categoriesRouter } = require("@features/categories");
+const { commentsRouter } = require("@features/comments");
+const { postsRouter } = require("@features/posts");
+const { rolesRouter } = require("@features/roles");
+const { subscribersRouter } = require("@features/subscribers");
+const { usersRouter } = require("@features/users");
 
-// Routes
-const authRouter = require("./routes/api/auth");
-const categoriesRouter = require("./routes/api/categories");
-const commentsRouter = require("./routes/api/comments");
-const postsRouter = require("./routes/api/posts");
-const rolesRouter = require("./routes/api/roles");
-const subscribersRouter = require("./routes/api/subscribers");
-const usersRouter = require("./routes/api/users");
+const { AppError, errorHandler } = require("@lib/errors");
 
 const app = express();
 

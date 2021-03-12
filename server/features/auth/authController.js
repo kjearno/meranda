@@ -1,9 +1,8 @@
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
-const ac = require("../utils/permissions");
-const { User } = require("../models");
-const AppError = require("../utils/AppError");
-const catchAsync = require("../utils/catchAsync");
+const { AppError } = require("@lib/errors");
+const { User } = require("@lib/sequelize");
+const ac = require("./lib/permissions");
 
 const sendToken = (user, statusCode, req, res) => {
   const loggedInUser = {
@@ -35,7 +34,7 @@ const checkToken = async (req) => {
   const token = req.cookies.jwt;
 
   if (!token) {
-    throw new AppError("You are not authorized", 401);
+    throw new AppError(401, "You are not authorized");
   }
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
@@ -48,23 +47,23 @@ const checkToken = async (req) => {
 
   if (!currentUser) {
     throw new AppError(
-      "The user belonging to this token does no longer exist",
-      401
+      401,
+      "The user belonging to this token does no longer exist"
     );
   }
 
   if (!currentUser.isActive) {
-    throw new AppError("Your account is blocked", 403);
+    throw new AppError(403, "Your account is blocked");
   }
 
   return currentUser;
 };
 
-exports.register = catchAsync(async (req, res, next) => {
+exports.register = async (req, res) => {
   const { email, password, username } = req.body;
 
   if (!email || !password || !username) {
-    throw new AppError("Fill in all the fields", 400);
+    throw new AppError(400, "Fill in all the fields");
   }
 
   const user = await User.create({
@@ -74,13 +73,13 @@ exports.register = catchAsync(async (req, res, next) => {
   });
 
   sendToken(user, 201, req, res);
-});
+};
 
-exports.login = catchAsync(async (req, res, next) => {
+exports.login = async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    throw new AppError("Enter username and password", 400);
+    throw new AppError(400, "Enter username and password");
   }
 
   const user = await User.findOne({
@@ -94,15 +93,15 @@ exports.login = catchAsync(async (req, res, next) => {
 
   if (!user || !(await user.comparePassword(password, user.password))) {
     throw new AppError(
-      "The username or password you entered is incorrect",
-      401
+      401,
+      "The username or password you entered is incorrect"
     );
   }
 
   sendToken(user, 200, req, res);
-});
+};
 
-exports.logout = catchAsync(async (req, res, next) => {
+exports.logout = async (req, res) => {
   res.clearCookie("jwt", {
     httpOnly: true,
     secure: req.secure || req.headers["x-forwarded-proto"] === "https",
@@ -112,16 +111,16 @@ exports.logout = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
   });
-});
+};
 
-exports.checkAuth = catchAsync(async (req, res, next) => {
+exports.checkAuth = async (req, res, next) => {
   const currentUser = await checkToken(req);
 
   req.user = currentUser;
   next();
-});
+};
 
-exports.checkRights = catchAsync(async (req, res, next) => {
+exports.checkRights = async (req, res, next) => {
   const methods = {
     GET: "readAny",
     POST: "createOwn",
@@ -137,16 +136,16 @@ exports.checkRights = catchAsync(async (req, res, next) => {
   const permission = ac.can(user.role.name)[currentAction](resource);
 
   if (!permission.granted) {
-    throw new AppError("You don't have rights to perform this action", 403);
+    throw new AppError(403, "You don't have rights to perform this action");
   }
 
   next();
-});
+};
 
 exports.protect = [exports.checkAuth, exports.checkRights];
 
-exports.refreshToken = catchAsync(async (req, res, next) => {
+exports.refreshToken = async (req, res) => {
   const user = await checkToken(req);
 
   sendToken(user, 200, req, res);
-});
+};
