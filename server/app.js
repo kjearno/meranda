@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const hpp = require("hpp");
 require("express-async-errors");
@@ -15,13 +16,21 @@ const { subscribersRouter } = require("@features/subscribers");
 const { usersRouter } = require("@features/users");
 
 const { AppError, errorHandler } = require("@lib/errors");
+const { rateLimitHandler } = require("@lib/handlers");
 
 const app = express();
 
 app.enable("trust proxy");
 
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  handler: rateLimitHandler,
+});
+
 // 1) Global middleware
 app.use(helmet());
+app.use("/api/", apiLimiter);
 app.use(
   cors({
     origin: ["http://localhost:3000", "https://komilt.github.io"],
