@@ -11,17 +11,6 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: "CASCADE",
-        references: {
-          model: {
-            tableName: "users",
-          },
-          key: "id",
-        },
-      },
       post_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -29,6 +18,17 @@ module.exports = {
         references: {
           model: {
             tableName: "posts",
+          },
+          key: "id",
+        },
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: "CASCADE",
+        references: {
+          model: {
+            tableName: "users",
           },
           key: "id",
         },

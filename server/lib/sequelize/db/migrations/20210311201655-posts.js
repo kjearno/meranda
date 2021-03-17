@@ -25,21 +25,9 @@ module.exports = {
         allowNull: false,
       },
       photo: Sequelize.STRING,
-      thumbnail: Sequelize.STRING,
       is_attached: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
-      },
-      user_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: "CASCADE",
-        references: {
-          model: {
-            tableName: "users",
-          },
-          key: "id",
-        },
       },
       category_id: {
         type: Sequelize.INTEGER,
@@ -48,6 +36,17 @@ module.exports = {
         references: {
           model: {
             tableName: "categories",
+          },
+          key: "id",
+        },
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: "CASCADE",
+        references: {
+          model: {
+            tableName: "users",
           },
           key: "id",
         },
