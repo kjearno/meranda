@@ -10,16 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.22.1",
-    "nodemon": "^2.0.2",
-    "prettier": "2.2.1",
-    "sequelize-cli": "^6.2.0"
-  },
   "dependencies": {
     "accesscontrol": "^2.2.1",
     "app-root-path": "^3.0.0",
@@ -40,13 +30,24 @@
     "pluralize": "^8.0.0",
     "sequelize": "^6.5.0",
     "sequelize-slugify": "^1.5.0",
-    "sharp": "^0.24.1"
+    "sharp": "^0.24.1",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.2",
+    "prettier": "2.2.1",
+    "sequelize-cli": "^6.2.0"
   },
   "_moduleAliases": {
     "@features": "features",
     "@lib": "lib"
   },
   "engines": {
-    "node": "^10.0.0"
+    "node": "^14.0.0"
   }
 }
