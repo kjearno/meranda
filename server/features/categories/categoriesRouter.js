@@ -6,10 +6,6 @@ const categoriesController = require("./categoriesController");
 const router = Router();
 const upload = multer();
 
-// additional
-router.get("/:category/posts/:post", categoriesController.getPostFromCategory);
-router.get("/:category/posts", categoriesController.getPostsFromCategory);
-
 router
   .route("/")
   .get(categoriesController.getCategories)

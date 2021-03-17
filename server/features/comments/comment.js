@@ -6,19 +6,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
-          notEmpty: {
-            msg: "Comment text cannot be an empty string",
-          },
-          notNull: {
-            msg: "Enter your comment text",
-          },
+          notEmpty: true,
         },
       },
-      userId: {
+      postId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      postId: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -26,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       tableName: "comments",
       underscored: true,
+      defaultScope: {
+        include: ["post", "user"],
+      },
     }
   );
 

@@ -1,39 +1,16 @@
 const { AppError } = require("@lib/errors");
-const { Comment, Category, Post, User, parseQuery } = require("@lib/sequelize");
+const { Comment, parseQuery } = require("@lib/sequelize");
 
 exports.getComments = async (req, res) => {
-  const options = parseQuery(req);
-
-  const comments = await Comment.findAll({
-    ...options,
-    include: [
-      {
-        model: Post,
-        as: "post",
-        include: [{ model: Category, as: "category" }],
-      },
-      {
-        model: User,
-        as: "user",
-      },
-    ],
+  const result = await Comment.findAndCountAll({
+    ...parseQuery(req),
   });
-  const count = await Comment.count({ where: options.where });
 
-  res.status(200).json({
-    count,
-    rows: comments,
-  });
+  res.status(200).json(result);
 };
 
 exports.createComment = async (req, res) => {
-  const commentData = {
-    text: req.body.text,
-    postId: req.body.postId,
-    userId: req.user.id,
-  };
-
-  const comment = await Comment.create(commentData);
+  const comment = await Comment.create(req.body);
 
   res.status(201).json(comment);
 };
@@ -44,7 +21,7 @@ exports.deleteComments = async (req, res) => {
   if (!ids) {
     throw new AppError(
       400,
-      'Enter comment "ids" in query parameters. Example: /comments?ids=[1,2]'
+      "Enter comment 'ids' in query parameters. Example: /comments?ids=[1,2]"
     );
   }
 
@@ -59,12 +36,8 @@ exports.deleteComments = async (req, res) => {
 
 exports.getComment = async (req, res) => {
   const { id } = req.params;
-  const comment = await Comment.findByPk(id, {
-    include: [
-      { model: User, as: "user" },
-      { model: Post, as: "post" },
-    ],
-  });
+
+  const comment = await Comment.findByPk(id);
 
   if (!comment) {
     throw new AppError(404, `Comment with id ${id} not found`);
@@ -75,22 +48,21 @@ exports.getComment = async (req, res) => {
 
 exports.updateComment = async (req, res) => {
   const { id } = req.params;
+
   const comment = await Comment.findByPk(id);
 
   if (!comment) {
     throw new AppError(404, `Comment with id ${id} not found`);
   }
 
-  const { text } = req.body;
-  await comment.update({
-    text,
-  });
+  await comment.update(req.body);
 
   res.status(200).json(comment);
 };
 
 exports.deleteComment = async (req, res) => {
   const { id } = req.params;
+
   const comment = await Comment.findByPk(id);
 
   if (!comment) {
@@ -104,27 +76,19 @@ exports.deleteComment = async (req, res) => {
 
 // additional
 exports.sendComment = async (req, res) => {
-  const commentData = {
+  const data = {
     text: req.body.text,
     postId: req.body.postId,
     userId: req.user.id,
   };
 
-  const createdComment = await Comment.create(commentData);
+  const comment = await Comment.create(data);
 
-  const comment = await Comment.findOne({
-    where: {
-      id: createdComment.id,
-    },
-    include: [
-      { model: User, as: "user" },
-      {
-        model: Post,
-        as: "post",
-        include: [{ model: Category, as: "category" }],
-      },
-    ],
-  });
+  const post = await comment.getPost();
+  comment.setDataValue("post", post);
+
+  const user = await comment.getUser();
+  comment.setDataValue("user", user);
 
   res.status(201).json(comment);
 };

@@ -8,21 +8,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isEmail: {
-            msg: "Enter email in the correct format",
-          },
-          notNull: {
-            msg: "Enter user email",
-          },
+          isEmail: true,
         },
       },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: {
-            msg: "Enter user password",
-          },
           minLength(password) {
             if (password.length < 8) {
               throw new Error("Password must be at least 8 characters");
@@ -34,12 +26,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: {
-            msg: "Username cannot be an empty string",
-          },
-          notNull: {
-            msg: "Enter username",
-          },
           minLength(username) {
             if (username.length < 3) {
               throw new Error("Username must be at least 3 characters");
@@ -58,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       roleId: {
         type: DataTypes.INTEGER,
-        defaultValue: 3,
+        defaultValue: 2,
       },
     },
     {
@@ -68,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
         attributes: {
           exclude: ["password"],
         },
-        include: [{ association: "role" }],
+        include: ["role"],
       },
     }
   );
@@ -76,7 +62,6 @@ module.exports = (sequelize, DataTypes) => {
   // associations
   User.associate = (models) => {
     User.belongsTo(models.Role, { as: "role" });
-    User.hasMany(models.Comment, { as: "comments", foreignKey: "userId" });
   };
 
   // hooks
@@ -86,15 +71,14 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     if (user.changed("password")) {
-      const hash = await bcrypt.hash(user.password, 12);
+      const hash = await bcrypt.hash(user.password, 10);
       user.password = hash;
     }
   });
 
   // instance methods
-  User.prototype.comparePassword = async (plainPassword, hashedPassword) => {
-    return bcrypt.compare(plainPassword, hashedPassword);
-  };
+  User.prototype.comparePassword = async (plainPassword, hashedPassword) =>
+    bcrypt.compare(plainPassword, hashedPassword);
 
   return User;
 };

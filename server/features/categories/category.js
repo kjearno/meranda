@@ -8,15 +8,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: {
-            msg: "Category name cannot be an empty string",
-          },
-          notNull: {
-            msg: "Enter a category name",
-          },
+          notEmpty: true,
         },
       },
-      slug: DataTypes.STRING,
+      slug: {
+        type: DataTypes.STRING,
+        unique: true,
+      },
     },
     {
       tableName: "categories",
@@ -27,11 +25,6 @@ module.exports = (sequelize, DataTypes) => {
   SequelizeSlugify.slugifyModel(Category, {
     source: ["name"],
   });
-
-  // associations
-  Category.associate = (models) => {
-    Category.hasMany(models.Post, { as: "posts", foreignKey: "categoryId" });
-  };
 
   return Category;
 };

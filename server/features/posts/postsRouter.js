@@ -9,7 +9,7 @@ router
   .get(postsController.getPosts)
   .post(
     authController.protect,
-    postsController.handlePhoto(),
+    postsController.handlePhoto,
     postsController.createPost
   )
   .delete(authController.protect, postsController.deletePosts);
@@ -19,7 +19,7 @@ router
   .get(postsController.getPost)
   .patch(
     authController.protect,
-    postsController.handlePhoto(),
+    postsController.handlePhoto,
     postsController.updatePost
   )
   .delete(authController.protect, postsController.deletePost);

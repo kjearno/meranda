@@ -3,6 +3,7 @@ const rolesController = require("./rolesController");
 
 const router = Router();
 
-router.route("/").get(rolesController.getRoles);
+router.get("/", rolesController.getRoles);
+router.get("/:id", rolesController.getRole);
 
 module.exports = router;

@@ -2,21 +2,15 @@ const { AppError } = require("@lib/errors");
 const { Subscriber, parseQuery } = require("@lib/sequelize");
 
 exports.getSubscribers = async (req, res) => {
-  const options = parseQuery(req);
-
-  const subscribers = await Subscriber.findAll(options);
-  const count = await Subscriber.count({ where: options.count });
-
-  res.status(200).json({
-    count,
-    rows: subscribers,
+  const result = await Subscriber.findAndCountAll({
+    ...parseQuery(req),
   });
+
+  res.status(200).json(result);
 };
 
 exports.createSubscriber = async (req, res) => {
-  const { email } = req.body;
-
-  const subscriber = await Subscriber.create({ email });
+  const subscriber = await Subscriber.create(req.body);
 
   res.status(201).json(subscriber);
 };
@@ -42,6 +36,7 @@ exports.deleteSubscribers = async (req, res) => {
 
 exports.getSubscriber = async (req, res) => {
   const { id } = req.params;
+
   const subscriber = await Subscriber.findByPk(id);
 
   if (!subscriber) {
@@ -53,23 +48,21 @@ exports.getSubscriber = async (req, res) => {
 
 exports.updateSubscriber = async (req, res) => {
   const { id } = req.params;
+
   const subscriber = await Subscriber.findByPk(id);
 
   if (!subscriber) {
     throw new AppError(404, `Subscriber with id ${id} not found`);
   }
 
-  const { email } = req.body;
-
-  await subscriber.update({
-    email,
-  });
+  await subscriber.update(req.body);
 
   res.status(200).json(subscriber);
 };
 
 exports.deleteSubscriber = async (req, res) => {
   const { id } = req.params;
+
   const subscriber = await Subscriber.findByPk(id);
 
   if (!subscriber) {

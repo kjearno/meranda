@@ -6,12 +6,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: {
-            msg: "Role name cannot be an empty string",
-          },
-          notNull: {
-            msg: "Enter a role name",
-          },
+          notEmpty: true,
         },
       },
     },

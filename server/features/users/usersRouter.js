@@ -8,7 +8,7 @@ const router = Router();
 router.patch(
   "/me/photo",
   authController.checkAuth,
-  usersController.handlePhoto(),
+  usersController.handlePhoto,
   usersController.updateUserPhoto
 );
 
@@ -21,7 +21,11 @@ router.patch(
 router
   .route("/")
   .get(usersController.getUsers)
-  .post(authController.protect, usersController.createUser)
+  .post(
+    authController.protect,
+    usersController.handlePhoto,
+    usersController.createUser
+  )
   .delete(authController.protect, usersController.deleteUsers);
 
 router
@@ -29,7 +33,7 @@ router
   .get(usersController.getUser)
   .patch(
     authController.protect,
-    usersController.handlePhoto(),
+    usersController.handlePhoto,
     usersController.updateUser
   )
   .delete(authController.protect, usersController.deleteUser);

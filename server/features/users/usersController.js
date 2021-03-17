@@ -1,29 +1,17 @@
-const sharp = require("sharp");
 const { AppError } = require("@lib/errors");
-const { handlePhoto } = require("@lib/photoHandler");
+const { handlePhoto } = require("@lib/handlers");
 const { User, parseQuery } = require("@lib/sequelize");
 
 exports.getUsers = async (req, res) => {
-  const options = parseQuery(req);
-
-  const users = await User.findAll(options);
-  const count = await User.count({ where: options.where });
-
-  res.status(200).json({
-    count,
-    rows: users,
+  const result = await User.findAndCountAll({
+    ...parseQuery(req),
   });
+
+  res.status(200).json(result);
 };
 
 exports.createUser = async (req, res) => {
-  const { email, password, username, photo } = req.body;
-
-  const user = await User.create({
-    email,
-    password,
-    username,
-    photo,
-  });
+  const user = await User.create(req.body);
 
   res.status(201).json(user);
 };
@@ -49,6 +37,7 @@ exports.deleteUsers = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   const { id } = req.params;
+
   const user = await User.findByPk(id);
 
   if (!user) {
@@ -60,37 +49,21 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const { id } = req.params;
+
   const user = await User.findByPk(id);
 
   if (!user) {
     throw new AppError(404, `User with id ${id} not found`);
   }
 
-  const {
-    email,
-    password,
-    username,
-    photo,
-    isActive,
-    isAdmin,
-    roleId,
-  } = req.body;
-
-  await user.update({
-    email,
-    password,
-    username,
-    photo,
-    isActive,
-    isAdmin,
-    roleId,
-  });
+  await user.update(req.body);
 
   res.status(200).json(user);
 };
 
 exports.deleteUser = async (req, res) => {
   const { id } = req.params;
+
   const user = await User.findByPk(id);
 
   if (!user) {
@@ -103,6 +76,8 @@ exports.deleteUser = async (req, res) => {
 };
 
 // additional
+exports.handlePhoto = handlePhoto({ width: 300, height: 300 });
+
 exports.updateUserPhoto = async (req, res) => {
   const { user } = req;
   const { photo } = req.body;
@@ -119,7 +94,7 @@ exports.updateUserPassword = async (req, res) => {
   const { currentPassword, newPassword } = req.body;
 
   if (!currentPassword || !newPassword) {
-    throw new AppError(400, "Fill in all the fields");
+    throw new AppError(400, "Enter current and new password");
   }
 
   const isValidPassword = await user.comparePassword(
@@ -134,32 +109,4 @@ exports.updateUserPassword = async (req, res) => {
   await user.update({ password: newPassword });
 
   res.status(200).json(user);
-};
-
-exports.handlePhoto = () => {
-  const handleUserPhoto = async (req, res, next) => {
-    if (req.body.photo) {
-      req.body.photo = null;
-      return next();
-    }
-
-    if (!req.file) {
-      req.body.photo = undefined;
-      return next();
-    }
-
-    const file = req.file.buffer;
-    const photoName = `/uploads/users/photos/${Date.now()}.jpg`;
-
-    await sharp(file)
-      .resize(300, 300)
-      .toFormat("jpg")
-      .toFile(`public${photoName}`);
-
-    req.body.photo = process.env.BASE_URL + photoName;
-
-    next();
-  };
-
-  return [handlePhoto, handleUserPhoto];
 };
