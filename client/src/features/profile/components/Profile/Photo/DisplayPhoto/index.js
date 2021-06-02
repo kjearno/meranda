@@ -1,1 +1,0 @@
-export { DisplayPhoto } from "./DisplayPhoto";

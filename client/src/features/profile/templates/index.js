@@ -1,1 +1,1 @@
-export { ProfileTemplate } from "./common";
+export { ProfileTemplate } from "./ProfileTemplate";

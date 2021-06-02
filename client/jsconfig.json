@@ -3,9 +3,8 @@
     "baseUrl": "./src",
     "paths": {
       "@features/*": ["./features/*"],
-      "@lib/*": ["./lib/*"],
       "@pages/*": ["./pages/*"],
-      "@ui/*": ["./ui/*"]
+      "@shared/*": ["./shared/*"]
     }
   }
 }

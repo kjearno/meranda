@@ -1,1 +1,0 @@
-export { SiderTrigger } from "./SiderTrigger";

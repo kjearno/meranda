@@ -1,0 +1,25 @@
+.sectionTitle {
+  margin-bottom: 50px;
+  color: #000;
+}
+
+.caption {
+  display: block;
+  margin-bottom: 0;
+  font-size: 0.6rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.text {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid #222;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.text.loading {
+  border-bottom: 0;
+}

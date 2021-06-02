@@ -1,0 +1,1 @@
+export { ArticleTemplate } from "./ArticleTemplate";

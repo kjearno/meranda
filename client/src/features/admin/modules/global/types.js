@@ -1,1 +1,0 @@
-export const TOGGLE_SIDEBAR_COLLAPSED = "admin/global/TOGGLE_SIDEBAR_COLLAPSED";

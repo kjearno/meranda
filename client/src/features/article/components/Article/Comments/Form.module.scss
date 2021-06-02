@@ -1,0 +1,47 @@
+@import "@shared/constants/variables";
+
+.form {
+  position: relative;
+  padding: 1.8rem 1.5rem 1rem;
+  background-color: #f8f9fa;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 3rem;
+  }
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.error {
+  position: absolute;
+  top: 10px;
+  color: #e60000;
+  font-size: 14px;
+
+  @media (min-width: $breakpoint-md) {
+    top: 20px;
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  height: auto;
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-right: 10px;
+  background: #fff;
+  border-radius: 30px;
+  color: #495057;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  resize: none;
+}

@@ -1,0 +1,1 @@
+export { postEntity } from "./postEntity";

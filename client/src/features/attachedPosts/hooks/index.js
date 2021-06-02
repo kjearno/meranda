@@ -1,0 +1,1 @@
+export { useAttachedPosts } from "./useAttachedPosts";

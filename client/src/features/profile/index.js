@@ -1,4 +1,5 @@
+export { default as profileReducer } from "./profileSlice";
+export * from "./profileSlice";
 export * from "./components";
 export * from "./hooks";
-export * from "./modules/profile";
 export * from "./templates";

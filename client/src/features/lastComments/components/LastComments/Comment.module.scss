@@ -1,0 +1,42 @@
+.comment {
+  display: flex;
+  max-width: 255px;
+  margin-bottom: 30px;
+}
+
+.number {
+  margin-right: 30px;
+  color: #ccc;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.body {
+  flex-grow: 1;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.text {
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  font-size: 13px;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.author {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.date {
+  color: #b4b4b4;
+}

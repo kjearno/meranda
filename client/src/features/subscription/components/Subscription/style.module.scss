@@ -1,0 +1,53 @@
+@import "@shared/constants/variables";
+
+.error {
+  position: absolute;
+  margin-left: 20px;
+  color: #e60000;
+}
+
+.formField {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-right: 10px;
+  background-color: #fff;
+  border-radius: 30px;
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+}
+
+.formGroup {
+  display: flex;
+}
+
+.text {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+
+  @media (min-width: $breakpoint-md) {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.subscription {
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  text-align: center;
+
+  @media (min-width: $breakpoint-md) {
+    text-align: left;
+  }
+}

@@ -1,1 +1,0 @@
-export { CategoryTemplate } from "./common";

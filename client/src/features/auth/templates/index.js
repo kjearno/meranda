@@ -1,1 +1,1 @@
-export { AuthTemplate } from "./common";
+export { AuthTemplate } from "./AuthTemplate";

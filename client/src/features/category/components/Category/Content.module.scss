@@ -1,0 +1,10 @@
+@import "@shared/constants/variables";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}

@@ -1,0 +1,76 @@
+@import "@shared/constants/variables";
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background-color: #000;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+
+  &:active {
+    border-color: #6a9a33;
+    background-color: #71a436;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, 0.5);
+    outline: 0;
+  }
+
+  &:hover {
+    border-color: #71a436;
+    background-color: #78ad39;
+  }
+}
+
+.textButton {
+  width: 100%;
+  padding: 15px 96px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  @media (min-width: $breakpoint-sm) {
+    width: auto;
+  }
+}
+
+.iconButton {
+  padding: 0 30px;
+
+  > svg,
+  > span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  > svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff !important;
+  }
+
+  > span {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.loading {
+  opacity: 0.7;
+}
+
+.children {
+  line-height: 1;
+}
+
+.hidden {
+  visibility: hidden;
+}

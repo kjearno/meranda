@@ -1,0 +1,11 @@
+.pagination {
+  :global {
+    .rc-pagination-item-link {
+      font: initial;
+    }
+
+    a:hover {
+      color: rgba(0, 0, 0, 0.85) !important;
+    }
+  }
+}

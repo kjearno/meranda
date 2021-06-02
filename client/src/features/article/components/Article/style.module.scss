@@ -1,0 +1,41 @@
+.article {
+  overflow-wrap: break-word;
+}
+
+.photo {
+  margin-bottom: 3rem;
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  color: #000;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  font-size: 0.8rem;
+}
+
+.info {
+  margin-bottom: 0;
+}
+
+.date {
+  margin-bottom: 0;
+  color: #b4b4b4;
+}
+
+.text {
+  line-height: 1.7;
+}

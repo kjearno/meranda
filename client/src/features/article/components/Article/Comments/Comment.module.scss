@@ -1,0 +1,48 @@
+.comment {
+  display: flex;
+  margin-bottom: 1.875rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.photo {
+  height: 50px;
+  flex: 0 0 50px;
+  margin-right: 20px;
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+.content {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.meta {
+  margin-bottom: 8px;
+}
+
+.author {
+  margin-bottom: 4px;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.date {
+  margin-bottom: 0;
+  color: #ccc;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.text {
+  margin-bottom: 0;
+}
