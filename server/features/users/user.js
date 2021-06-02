@@ -38,10 +38,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
-      isAdmin: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-      },
       roleId: {
         type: DataTypes.INTEGER,
         defaultValue: 2,

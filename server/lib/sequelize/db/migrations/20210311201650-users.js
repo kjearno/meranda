@@ -26,10 +26,6 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
-      is_admin: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
       role_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

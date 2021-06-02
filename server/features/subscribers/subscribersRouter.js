@@ -7,7 +7,7 @@ const router = Router();
 router
   .route("/")
   .get(subscribersController.getSubscribers)
-  .post(authController.protect, subscribersController.createSubscriber)
+  .post(subscribersController.createSubscriber)
   .delete(authController.protect, subscribersController.deleteSubscribers);
 
 router

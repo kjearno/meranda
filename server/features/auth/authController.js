@@ -5,7 +5,52 @@ const { User } = require("@lib/sequelize");
 const { getResourceName } = require("@lib/utils");
 const ac = require("./lib/permissions");
 
-const checkToken = async (req) => {
+const sendToken = async ({ user, statusCode, req, res }) => {
+  const token = await promisify(jwt.sign)(
+    { id: user.id },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    }
+  );
+
+  res.cookie("jwt", token, {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+    secure: req.secure || req.headers["x-forwarded-proto"] === "https",
+    sameSite: process.env.NODE_ENV === "production" && "None",
+  });
+
+  user.setDataValue("password", undefined);
+
+  res.status(statusCode).json(user);
+};
+
+const checkRights = async (req, res, next) => {
+  const methods = {
+    GET: "readAny",
+    POST: "createOwn",
+    PATCH: "updateAny",
+    DELETE: "deleteAny",
+  };
+
+  const { method, user } = req;
+
+  const action = methods[method];
+  const resource = getResourceName(req);
+
+  const permission = ac.can(user.role.name)[action](resource);
+
+  if (!permission.granted) {
+    throw new AppError(403, "You don't have rights to perform this action");
+  }
+
+  next();
+};
+
+exports.checkAuth = async (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (!token) {
@@ -31,58 +76,7 @@ const checkToken = async (req) => {
     throw new AppError(403, "Your account is blocked");
   }
 
-  return user;
-};
-
-const sendToken = async ({ user, statusCode, req, res }) => {
-  const token = await promisify(jwt.sign)(
-    { id: user.id },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: process.env.JWT_EXPIRES_IN,
-    }
-  );
-
-  res.cookie("jwt", token, {
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-    ),
-    httpOnly: true,
-    secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-    sameSite: process.env.NODE_ENV === "production" && "None",
-  });
-
-  user.setDataValue("password", undefined);
-
-  res.status(statusCode).json(user);
-};
-
-exports.checkAuth = async (req, res, next) => {
-  const user = await checkToken(req);
-
   req.user = user;
-  next();
-};
-
-const checkRights = async (req, res, next) => {
-  const methods = {
-    GET: "readAny",
-    POST: "createOwn",
-    PATCH: "updateAny",
-    DELETE: "deleteAny",
-  };
-
-  const { method, user } = req;
-
-  const action = methods[method];
-  const resource = getResourceName(req);
-
-  const permission = ac.can(user.role.name)[action](resource);
-
-  if (!permission.granted) {
-    throw new AppError(403, "You don't have rights to perform this action");
-  }
-
   next();
 };
 
@@ -136,10 +130,4 @@ exports.logout = async (req, res) => {
   res.status(200).json({
     status: "success",
   });
-};
-
-exports.refreshToken = async (req, res) => {
-  const user = await checkToken(req);
-
-  sendToken({ user, statusCode: 200, req, res });
 };

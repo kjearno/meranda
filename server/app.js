@@ -31,12 +31,7 @@ const apiLimiter = rateLimit({
 // 1) Global middleware
 app.use(helmet());
 app.use("/api/", apiLimiter);
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://komilt.github.io"],
-    credentials: true,
-  })
-);
+app.use(cors({ origin: true, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
