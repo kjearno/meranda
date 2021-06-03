@@ -1,22 +1,199 @@
-# Meranda Blog
+# meranda
 
-![react-nodejs](https://user-images.githubusercontent.com/39556179/98289959-c3935680-1fca-11eb-8d16-26a98001aea5.png)
+**DEMO: [komilt.github.io/meranda](https://komilt.github.io/meranda)**
 
-This repository contains client and server parts of the [SPA blog](https://komilt.github.io/meranda/).
+![](https://user-images.githubusercontent.com/39556179/120553807-62255000-c412-11eb-92ba-89241b02be0b.png)
+
+## Getting Started
+
+1. Clone the repo:
+
+```sh
+$ git clone https://github.com/KomilT/meranda.git
+```
+
+2. Go to the project folder:
+
+```sh
+$ cd meranda
+```
 
 ## client
 
-- SPA (Single Page Application)
+### Features
+
 - React
 - Redux
-- and much more...
 
-> This application also contains an admin panel. Check it out by following [this](https://komilt.github.io/meranda/admin) link.<br> Username: test, Password: test.<br><br> **Be aware**: for security reasons, while you're using a test account, you cannot do dangerous operations, such as creating, editing and deleting. Just reading.
+### Installation
+
+1. Go to the client folder:
+
+```sh
+$ cd client
+```
+
+2. Install NPM packages:
+
+```sh
+$ npm install
+```
+
+### Usage
+
+#### Development server:
+
+```sh
+$ npm start
+```
+
+#### Build:
+
+```sh
+$ npm run build
+```
+
+#### Deploy:
+
+```sh
+$ npm run deploy
+```
+
+### Routes
+
+#### Home:
+
+> [komilt.github.io/meranda](https://komilt.github.io/meranda)
+
+#### Login:
+
+> [komilt.github.io/meranda/auth/login](https://komilt.github.io/meranda/auth/login)
+
+#### Register:
+
+> [komilt.github.io/meranda/auth/register](https://komilt.github.io/meranda/auth/register)
+
+#### Profile:
+
+> [komilt.github.io/meranda/profile](https://komilt.github.io/meranda/profile)
+
+#### Category:
+
+> [komilt.github.io/meranda/:category](https://komilt.github.io/meranda/health)
+
+#### Article:
+
+> [komilt.github.io/meranda/:category/:article](https://komilt.github.io/meranda/business/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-1)
+
+#### 404:
+
+> [komilt.github.io/meranda/:does/:not/:match](https://komilt.github.io/meranda/:does/:not/:match)
 
 ## server
 
-- REST API
+### Features
+
 - Node.js
 - Express
 - PostgreSQL
-- and much more...
+
+### Installation
+
+1. Go to the server folder:
+
+```sh
+$ cd server
+```
+
+2. Install NPM packages:
+
+```sh
+$ npm install
+```
+
+### Usage
+
+#### Development server:
+
+```sh
+$ npm run dev
+```
+
+#### Production server:
+
+```sh
+$ npm start
+```
+
+### API
+
+#### Endpoints
+
+##### auth
+
+`POST /auth/register`<br>
+`POST /auth/login`<br>
+`GET /auth/logout`
+
+##### categories
+
+`GET /categories`<br>
+`POST /categories`<br>
+`DELETE /categories`<br>
+`GET /categories/:id`<br>
+`PATCH /categories/:id`<br>
+`DELETE /categories/:id`
+
+##### comments
+
+`GET /comments`<br>
+`POST /comments`<br>
+`DELETE /comments`<br>
+`GET /comments/:id`<br>
+`PATCH /comments/:id`<br>
+`DELETE /comments/:id`<br>
+`POST /comments/me`
+
+##### posts
+
+`GET /posts`<br>
+`POST /posts`<br>
+`DELETE /posts`<br>
+`GET /posts/:id`<br>
+`PATCH /posts/:id`<br>
+`DELETE /posts/:id`
+
+##### roles
+
+`GET /roles`<br>
+`GET /roles/:id`
+
+##### subscribers
+
+`GET /subscribers`<br>
+`POST /subscribers`<br>
+`DELETE /subscribers`<br>
+`GET /subscribers/:id`<br>
+`PATCH /subscribers/:id`<br>
+`DELETE /subscribers/:id`
+
+##### users
+
+`GET /users`<br>
+`POST /users`<br>
+`DELETE /users`<br>
+`GET /users/:id`<br>
+`PATCH /users/:id`<br>
+`DELETE /users/:id`<br>
+`PATCH /users/me/photo`<br>
+`PATCH /users/me/password`
+
+#### Query examples
+
+##### Get all posts:
+
+> [meranda-14351.herokuapp.com/api/posts](https://meranda-14351.herokuapp.com/api/posts)
+
+##### Get post by id:
+
+> [meranda-14351.herokuapp.com/api/posts/1](https://meranda-14351.herokuapp.com/api/posts/1)
