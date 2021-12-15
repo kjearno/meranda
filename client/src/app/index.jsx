@@ -5,7 +5,7 @@ import { Pages } from "@pages";
 import { ScrollToTop } from "@shared/components";
 import { history } from "@shared/lib";
 import "react-toastify/dist/ReactToastify.min.css";
-import "./style.scss";
+import "@shared/styles/globals.scss";
 
 export function App() {
   return (
