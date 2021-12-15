@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { CommonError } from "./CommonError";
-import { NotFound } from "./NotFound";
+import { NotFoundError } from "./NotFoundError";
 
 export function Error({ error }) {
   switch (error.name) {
     case "NotFoundError":
-      return <NotFound />;
+      return <NotFoundError />;
     default:
       return <CommonError />;
   }

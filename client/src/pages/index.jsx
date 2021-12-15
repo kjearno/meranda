@@ -1,16 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useAuth } from "@features/auth";
-import { renderRoutes } from "@shared/lib";
-import { routes } from "./routes";
 
-export function Pages() {
-  const { isAuthenticated } = useAuth();
+import { Carousel } from "@features/attachedPosts";
+import { News } from "@features/news";
+import { HomeTemplate } from "@shared/templates";
 
+export default function Home() {
   return (
-    <>
-      <Helmet defaultTitle="meranda" titleTemplate="%s — meranda" />
-      {renderRoutes({ routes, isAuthenticated })}
-    </>
+    <HomeTemplate carousel={<Carousel />}>
+      <Helmet title="Home" />
+
+      <News />
+    </HomeTemplate>
   );
 }

@@ -1,9 +1,10 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
-import { Pagination, Section } from "@shared/components";
+
 import { Post } from "@features/entities";
+import { Pagination, Section } from "@shared/components";
 import { useNews } from "../../hooks";
-import styles from "./style.module.scss";
+import styles from "./News.module.scss";
 
 export function News() {
   const { posts, isLoading, current, pageSize, total, onChange } = useNews();
