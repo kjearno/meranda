@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { FormButton, FormGroup } from "@shared/components";
 import { useProfile } from "../../hooks";
-import { DisplayPhoto } from "./DisplayPhoto";
+import { ViewBox } from "./ViewBox";
 import styles from "./Photo.module.scss";
 
 export function Photo() {
@@ -24,7 +24,7 @@ export function Photo() {
   return (
     <form className={styles.form} onSubmit={onPhotoUpdate}>
       <FormGroup>
-        <DisplayPhoto src={user.photo} />
+        <ViewBox src={user.photo} />
       </FormGroup>
       <FormGroup>
         <input

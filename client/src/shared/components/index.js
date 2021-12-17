@@ -1,4 +1,3 @@
-export { Button, IconButton } from "./Button";
 export { Footer } from "./Footer";
 export { Header } from "./Header";
 export { Loader } from "./Loader";
@@ -7,5 +6,6 @@ export { Paper } from "./Paper";
 export { ScrollToTop } from "./ScrollToTop";
 export { Section } from "./Section";
 export { Sidebar } from "./Sidebar";
+export * from "./buttons";
 export * from "./errors";
 export * from "./forms";

@@ -1,11 +1,12 @@
+import MailIcon from "@material-ui/icons/Mail";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import MailIcon from "@material-ui/icons/Mail";
+
 import { IconButton } from "@shared/components";
 import { useSubscription } from "../../hooks";
-import styles from "./style.module.scss";
+import styles from "./Subscription.module.scss";
 
 export function Subscription() {
   const { isLoading, onSubscribe } = useSubscription();

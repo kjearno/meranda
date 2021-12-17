@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Section } from "@shared/components";
 import { useLastComments } from "../../hooks";
 import { Comment } from "./Comment";

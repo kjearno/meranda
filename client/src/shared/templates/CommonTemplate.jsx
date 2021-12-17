@@ -1,6 +1,7 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { Grid, Row, Col } from "react-flexbox-grid";
+
 import { Section, Sidebar } from "@shared/components";
 import { MainTemplate } from "./MainTemplate";
 

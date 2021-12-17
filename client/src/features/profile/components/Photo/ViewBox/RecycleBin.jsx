@@ -2,10 +2,10 @@ import { Button, Card, ClickAwayListener, Popper } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import React, { useRef, useState } from "react";
 
-import { useProfile } from "../../hooks";
-import styles from "./DeletePhoto.module.scss";
+import { useProfile } from "../../../hooks";
+import styles from "./RecycleBin.module.scss";
 
-export function DeletePhoto() {
+export function RecycleBin() {
   const [open, setOpen] = useState(false);
   const anchor = useRef(null);
   const { onPhotoDelete } = useProfile();
@@ -30,7 +30,7 @@ export function DeletePhoto() {
   return (
     <>
       <button
-        className={styles.deleteButton}
+        className={styles.button}
         ref={anchor}
         onClick={handleDeleteClick}
         type="button"

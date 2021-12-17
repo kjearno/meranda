@@ -1,8 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+import React from "react";
 import PulseLoader from "react-spinners/PulseLoader";
-import styles from "./style.module.scss";
+
+import styles from "./Button.module.scss";
 
 const cx = classNames.bind(styles);
 

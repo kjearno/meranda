@@ -1,6 +1,6 @@
-import React from "react";
 import { Skeleton } from "@material-ui/lab";
-import styles from "./style.module.scss";
+import React from "react";
+import styles from "./Post.module.scss";
 
 export function Loader({ n }) {
   return [...Array(n).keys()].map((key) => (

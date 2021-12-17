@@ -1,12 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+import React from "react";
+
 import { SectionTitle } from "./SectionTitle";
-import styles from "./style.module.scss";
+import styles from "./Section.module.scss";
 
 const cx = classNames.bind(styles);
 
-export function Section({ className, painted, children }) {
+export function Section({ children, className, painted }) {
   return (
     <section className={cx("section", className, { painted })}>
       {children}
@@ -17,9 +18,9 @@ export function Section({ className, painted, children }) {
 Section.Title = SectionTitle;
 
 Section.propTypes = {
+  children: PropTypes.element.isRequired,
   className: PropTypes.string,
   painted: PropTypes.bool,
-  children: PropTypes.element.isRequired,
 };
 
 Section.defaultProps = {

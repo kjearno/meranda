@@ -1,9 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { Grid, Row, Col } from "react-flexbox-grid";
+
 import { Section, Sidebar } from "@shared/components";
-import { MainTemplate } from "../MainTemplate";
-import styles from "./style.module.scss";
+import { MainTemplate } from "./MainTemplate";
+import styles from "./HomeTemplate.module.scss";
 
 export function HomeTemplate({ carousel, children }) {
   return (

@@ -1,12 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Skeleton } from "@material-ui/lab";
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+import React from "react";
+
 import styles from "./SectionTitle.module.scss";
 
 const cx = classNames.bind(styles);
 
-export function SectionTitle({ caption, loading, children }) {
+export function SectionTitle({ caption, children, loading }) {
   return (
     <div className={styles.sectionTitle}>
       {caption && <p className={styles.caption}>{caption}</p>}
@@ -20,17 +21,17 @@ export function SectionTitle({ caption, loading, children }) {
 
 SectionTitle.propTypes = {
   caption: PropTypes.string,
-  loading: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(
       PropTypes.oneOfType([PropTypes.number, PropTypes.string])
     ),
   ]),
+  loading: PropTypes.bool,
 };
 
 SectionTitle.defaultProps = {
   caption: "",
-  loading: false,
   children: null,
+  loading: false,
 };

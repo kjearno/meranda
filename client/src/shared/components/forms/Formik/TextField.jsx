@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Field } from "formik";
 import { TextField as MuiTextField } from "@material-ui/core";
+import { Field } from "formik";
+import PropTypes from "prop-types";
+import React from "react";
 
 export function TextField({ name, label, touched, errors }) {
   let errorMessage = "";

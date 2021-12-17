@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Field } from "formik";
 import { IconButton, InputAdornment, TextField } from "@material-ui/core";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import { Field } from "formik";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 export function PasswordField({ name, label, touched, errors }) {
   let errorMessage = "";

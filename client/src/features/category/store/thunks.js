@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import { fetchCategory, fetchPosts } from "@features/entities";
 import { FAILED_STATUS, SUCCEEDED_STATUS } from "@shared/constants";
 import { NotFoundError } from "@shared/lib";

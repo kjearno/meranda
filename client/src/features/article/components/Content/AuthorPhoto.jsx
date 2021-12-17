@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { NoUserPhoto } from "@shared/assets";
+import { noUserPhoto } from "@shared/assets";
 import styles from "./AuthorPhoto.module.scss";
 
 export function AuthorPhoto({ photo }) {
   return (
     <div className={styles.authorPhoto}>
-      <img src={photo || NoUserPhoto} alt="" />
+      <img src={photo || noUserPhoto} alt="" />
     </div>
   );
 }

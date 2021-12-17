@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { toast } from "react-toastify";
-import { register, login, logout } from "@features/auth";
+
+import { login, logout, register } from "@features/auth";
 import {
   FAILED_STATUS,
   IDLE_STATUS,

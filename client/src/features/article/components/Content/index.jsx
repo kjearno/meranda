@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { NoPostPhoto } from "@shared/assets";
+import { noPostPhoto } from "@shared/assets";
 import { Error, Loader } from "@shared/components";
 import { useArticle } from "../../hooks";
 import { AuthorPhoto } from "./AuthorPhoto";
@@ -19,7 +19,7 @@ export function Content() {
     return <Error error={error} />;
   }
 
-  const photo = article.photo || NoPostPhoto;
+  const photo = article.photo || noPostPhoto;
 
   return (
     <article className={styles.article}>

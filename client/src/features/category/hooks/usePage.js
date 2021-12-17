@@ -1,8 +1,9 @@
+import queryString from "query-string";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { scroller } from "react-scroll";
-import queryString from "query-string";
+
 import { LOADING_STATUS } from "@shared/constants";
 import {
   fetchPage,

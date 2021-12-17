@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { css } from "@emotion/core";
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+import React from "react";
 import PulseLoader from "react-spinners/PulseLoader";
-import styles from "./style.module.scss";
+
+import styles from "./Button.module.scss";
 
 const override = css`
   position: absolute;
@@ -15,7 +16,7 @@ const override = css`
 
 const cx = classNames.bind(styles);
 
-export function Button({ loading, children }) {
+export function Button({ children, loading }) {
   return (
     <button
       className={cx("button", "textButton", { loading })}
@@ -29,6 +30,6 @@ export function Button({ loading, children }) {
 }
 
 Button.propTypes = {
-  loading: PropTypes.bool.isRequired,
   children: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
 };

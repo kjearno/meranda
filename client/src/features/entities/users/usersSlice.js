@@ -1,6 +1,7 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+
 import { register, login } from "@features/auth";
 import { updatePhoto } from "@features/profile";
 import { IDLE_STATUS } from "@shared/constants";

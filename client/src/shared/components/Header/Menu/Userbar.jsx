@@ -1,8 +1,9 @@
+import { ListItem } from "@material-ui/core";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { ListItem } from "@material-ui/core";
+
 import { useAuth } from "@features/auth";
-import styles from "./style.module.scss";
+import styles from "./Menu.module.scss";
 
 export function Userbar() {
   const { isAuthenticated, onLogout } = useAuth();

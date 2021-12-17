@@ -1,8 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { Link } from "react-router-dom";
+
 import { usePost } from "@features/entities";
-import { NoPostPhoto } from "@shared/assets";
+import { noPostPhoto } from "@shared/assets";
 import styles from "./Slide.module.scss";
 
 export function Slide({
@@ -24,7 +25,7 @@ export function Slide({
       <div className={styles.photo}>
         <div
           className={styles.image}
-          style={{ backgroundImage: `url(${photo || NoPostPhoto})` }}
+          style={{ backgroundImage: `url(${photo || noPostPhoto})` }}
         />
       </div>
 

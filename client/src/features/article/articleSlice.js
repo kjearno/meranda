@@ -3,6 +3,7 @@ import {
   createSelector,
   createSlice,
 } from "@reduxjs/toolkit";
+
 import { fetchCategory, fetchPost, selectAllPosts } from "@features/entities";
 import {
   FAILED_STATUS,

@@ -1,11 +1,12 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { Link } from "react-router-dom";
-import { NoPostPhoto } from "@shared/assets";
+
+import { noPostPhoto } from "@shared/assets";
 import { usePost } from "../../hooks";
 import { Loader } from "./Loader";
 import { MetaCategory } from "./MetaCategory";
-import styles from "./style.module.scss";
+import styles from "./Post.module.scss";
 
 export function Post({
   title,
@@ -26,7 +27,7 @@ export function Post({
     <article className={styles.post}>
       <div className={styles.photo}>
         <Link to={`/${categorySlug}/${slug}`}>
-          <img src={photo || NoPostPhoto} alt="" />
+          <img src={photo || noPostPhoto} alt="" />
         </Link>
       </div>
 

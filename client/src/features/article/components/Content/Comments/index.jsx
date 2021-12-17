@@ -3,8 +3,8 @@ import React from "react";
 
 import { Loader, Section } from "@shared/components";
 import { useComments } from "../../../hooks";
-import { Item } from "./Item";
 import { Form } from "./Form";
+import { Item } from "./Item";
 import styles from "./Comments.module.scss";
 
 export function Comments({ articleId }) {

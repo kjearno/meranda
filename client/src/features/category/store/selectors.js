@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+
 import { selectAllPosts } from "@features/entities";
 import { LOADING_STATUS } from "@shared/constants";
 import { selectAllCategories } from "@shared/entities";

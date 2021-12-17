@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { fetchCategory } from "@features/entities";
 import {
   FAILED_STATUS,

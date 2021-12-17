@@ -1,6 +1,6 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useHistory } from "react-router-dom";
 
 export function NotFoundError() {
   const { location } = useHistory();

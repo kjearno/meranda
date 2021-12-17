@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+
 import {
   FAILED_STATUS,
   IDLE_STATUS,
@@ -8,7 +10,6 @@ import {
   SUCCEEDED_STATUS,
 } from "@shared/constants";
 import { axios } from "@shared/lib";
-import { toast } from "react-toastify";
 
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
 export const selectStatus = (state) => state.auth.status;

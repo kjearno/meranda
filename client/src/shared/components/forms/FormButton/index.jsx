@@ -1,10 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { css } from "@emotion/core";
-import classNames from "classnames/bind";
 import { Button } from "@material-ui/core";
+import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+import React from "react";
 import PulseLoader from "react-spinners/PulseLoader";
-import styles from "./style.module.scss";
+
+import styles from "./FormButton.module.scss";
 
 const override = css`
   position: absolute;
@@ -15,7 +16,7 @@ const override = css`
 
 const cx = classNames.bind(styles);
 
-export function FormButton({ disabled, loading, children }) {
+export function FormButton({ children, disabled, loading }) {
   return (
     <Button
       className={styles.button}
@@ -31,7 +32,7 @@ export function FormButton({ disabled, loading, children }) {
 }
 
 FormButton.propTypes = {
+  children: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
-  children: PropTypes.string.isRequired,
 };

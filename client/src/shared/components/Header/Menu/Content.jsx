@@ -1,9 +1,10 @@
+import { ListItem } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { ListItem } from "@material-ui/core";
+
 import { useCategories } from "@features/entities";
 import { Loader } from "./Loader";
-import styles from "./style.module.scss";
+import styles from "./Menu.module.scss";
 
 export function Content() {
   const { categories, isLoading } = useCategories();

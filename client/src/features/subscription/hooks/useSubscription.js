@@ -1,5 +1,5 @@
-import { LOADING_STATUS } from "@shared/constants";
 import { useDispatch, useSelector } from "react-redux";
+import { LOADING_STATUS } from "@shared/constants";
 import { selectStatus, subscribe } from "../subscriptionSlice";
 
 export const useSubscription = () => {

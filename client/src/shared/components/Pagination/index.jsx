@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import "rc-pagination/assets/index.css";
 import PropTypes from "prop-types";
 import RcPagination from "rc-pagination";
 import locale from "rc-pagination/es/locale/en_US";
+import React, { useContext } from "react";
+
 import { DeviceContext } from "@shared/context";
-import styles from "./style.module.scss";
-import "rc-pagination/assets/index.css";
+import styles from "./Pagination.module.scss";
 
 export function Pagination({ current, pageSize, total, onChange }) {
   const isMobile = useContext(DeviceContext);

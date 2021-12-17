@@ -1,4 +1,5 @@
 import { combineReducers } from "@reduxjs/toolkit";
+
 import { categoriesReducer } from "./categories";
 import { commentsReducer } from "./comments";
 import { postsReducer } from "./posts";

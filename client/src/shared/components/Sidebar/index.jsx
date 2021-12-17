@@ -1,6 +1,6 @@
 import React from "react";
 import { LastComments } from "@features/lastComments";
-import styles from "./style.module.scss";
+import styles from "./Sidebar.module.scss";
 
 export function Sidebar() {
   return (

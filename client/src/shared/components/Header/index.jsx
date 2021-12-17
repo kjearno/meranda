@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Grid } from "react-flexbox-grid";
 import { Divider, Drawer, IconButton } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import MenuIcon from "@material-ui/icons/Menu";
+import React, { useState } from "react";
+import { Grid } from "react-flexbox-grid";
+import { Link } from "react-router-dom";
+
 import { Menu } from "./Menu";
-import styles from "./style.module.scss";
+import styles from "./Header.module.scss";
 
 export function Header() {
   const [open, setOpen] = useState(false);

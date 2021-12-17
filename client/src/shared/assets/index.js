@@ -1,2 +1,2 @@
-export { default as NoPostPhoto } from "./no-post.png";
-export { default as NoUserPhoto } from "./no-user.png";
+export { default as noPostPhoto } from "./no-post.png";
+export { default as noUserPhoto } from "./no-user.png";

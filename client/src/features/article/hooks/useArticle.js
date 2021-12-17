@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
 import { useCategoryData } from "@features/category";
 import { IDLE_STATUS, LOADING_STATUS } from "@shared/constants";
 import { selectUserById } from "@shared/entities";

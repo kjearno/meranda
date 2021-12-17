@@ -2,11 +2,11 @@ import { Skeleton } from "@material-ui/lab";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
-import { NoUserPhoto } from "@shared/assets";
-import { DeletePhoto } from "./DeletePhoto";
-import styles from "./DisplayPhoto.module.scss";
+import { noUserPhoto } from "@shared/assets";
+import { RecycleBin } from "./RecycleBin";
+import styles from "./ViewBox.module.scss";
 
-export function DisplayPhoto({ src }) {
+export function ViewBox({ src }) {
   const [isLoading, setLoading] = useState(!!src);
 
   useEffect(() => {
@@ -21,21 +21,21 @@ export function DisplayPhoto({ src }) {
   const photo = isLoading ? (
     <Skeleton variant="rect" height="300px" />
   ) : (
-    <img src={src || NoUserPhoto} alt="" />
+    <img src={src || noUserPhoto} alt="" />
   );
 
   return (
     <div className={styles.photo}>
       {photo}
-      {src && <DeletePhoto />}
+      {src && <RecycleBin />}
     </div>
   );
 }
 
-DisplayPhoto.propTypes = {
+ViewBox.propTypes = {
   src: PropTypes.string,
 };
 
-DisplayPhoto.defaultProps = {
+ViewBox.defaultProps = {
   src: null,
 };

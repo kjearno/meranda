@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { NoUserPhoto } from "@shared/assets";
+import { noUserPhoto } from "@shared/assets";
 import { useComment } from "../../../hooks";
 import styles from "./Item.module.scss";
 
@@ -11,7 +11,7 @@ export function Item({ text, createdAt, userId }) {
   return (
     <li className={styles.comment}>
       <div className={styles.photo}>
-        <img src={photo || NoUserPhoto} alt="" />
+        <img src={photo || noUserPhoto} alt="" />
       </div>
 
       <div className={styles.content}>

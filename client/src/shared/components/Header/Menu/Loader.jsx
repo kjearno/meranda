@@ -1,8 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import { ListItem } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
-import styles from "./style.module.scss";
+import React from "react";
+import { Link } from "react-router-dom";
+
+import styles from "./Menu.module.scss";
 
 export function Loader({ n }) {
   return [...Array(n).keys()].map((key) => (

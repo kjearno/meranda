@@ -1,7 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import MoonLoader from "react-spinners/MoonLoader";
-import styles from "./style.module.scss";
+
+import styles from "./Loader.module.scss";
 
 export function Loader({ size }) {
   return (
