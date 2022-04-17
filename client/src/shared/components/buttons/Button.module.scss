@@ -18,7 +18,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, 0.5);
+    box-shadow: 0 0 0 3.2px rgba(139, 195, 74, 0.5);
     outline: 0;
   }
 
@@ -32,7 +32,7 @@
   width: 100%;
   padding: 15px 96px;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-transform: uppercase;
 
   @media (min-width: $breakpoint-sm) {

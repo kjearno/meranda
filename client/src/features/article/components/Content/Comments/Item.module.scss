@@ -1,6 +1,6 @@
 .comment {
   display: flex;
-  margin-bottom: 1.875rem;
+  margin-bottom: 30px;
 
   &:last-child {
     margin-bottom: 0;
@@ -30,7 +30,7 @@
 .author {
   margin-bottom: 4px;
   color: #000;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -38,8 +38,8 @@
 .date {
   margin-bottom: 0;
   color: #ccc;
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 

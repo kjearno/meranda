@@ -2,23 +2,23 @@
 
 .form {
   position: relative;
-  padding: 1.8rem 1.5rem 1rem;
+  padding: 28.8px 24px 16px;
   background-color: #f8f9fa;
 
   @media (min-width: $breakpoint-md) {
-    padding: 3rem;
+    padding: 48px;
   }
 }
 
 .formGroup {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .error {
   position: absolute;
   top: 10px;
   color: #e60000;
-  font-size: 14px;
+  font-size: 0.875rem;
 
   @media (min-width: $breakpoint-md) {
     top: 20px;
@@ -40,7 +40,7 @@
   background: #fff;
   border-radius: 30px;
   color: #495057;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
   outline: none;
   resize: none;
