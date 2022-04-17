@@ -2,7 +2,7 @@
   "name": "meranda-client",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://komilt.github.io/meranda",
+  "homepage": "https://kjearno.github.io/meranda",
   "dependencies": {
     "@craco/craco": "^5.6.4",
     "@emotion/core": "^10.1.1",

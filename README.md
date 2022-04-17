@@ -1,6 +1,6 @@
 # meranda
 
-**DEMO: [komilt.github.io/meranda](https://komilt.github.io/meranda)**
+**DEMO: [kjearno.github.io/meranda](https://kjearno.github.io/meranda)**
 
 ![](https://user-images.githubusercontent.com/39556179/120553807-62255000-c412-11eb-92ba-89241b02be0b.png)
 
@@ -9,7 +9,7 @@
 1. Clone the repo:
 
 ```sh
-$ git clone https://github.com/KomilT/meranda.git
+$ git clone https://github.com/kjearno/meranda.git
 ```
 
 2. Go to the project folder:
@@ -63,31 +63,31 @@ $ npm run deploy
 
 #### Home:
 
-> [komilt.github.io/meranda](https://komilt.github.io/meranda)
+> [kjearno.github.io/meranda](https://kjearno.github.io/meranda)
 
 #### Login:
 
-> [komilt.github.io/meranda/auth/login](https://komilt.github.io/meranda/auth/login)
+> [kjearno.github.io/meranda/auth/login](https://kjearno.github.io/meranda/auth/login)
 
 #### Register:
 
-> [komilt.github.io/meranda/auth/register](https://komilt.github.io/meranda/auth/register)
+> [kjearno.github.io/meranda/auth/register](https://kjearno.github.io/meranda/auth/register)
 
 #### Profile:
 
-> [komilt.github.io/meranda/profile](https://komilt.github.io/meranda/profile)
+> [kjearno.github.io/meranda/profile](https://kjearno.github.io/meranda/profile)
 
 #### Category:
 
-> [komilt.github.io/meranda/:category](https://komilt.github.io/meranda/health)
+> [kjearno.github.io/meranda/:category](https://kjearno.github.io/meranda/health)
 
 #### Article:
 
-> [komilt.github.io/meranda/:category/:article](https://komilt.github.io/meranda/business/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-1)
+> [kjearno.github.io/meranda/:category/:article](https://kjearno.github.io/meranda/business/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-1)
 
 #### 404:
 
-> [komilt.github.io/meranda/:does/:not/:match](https://komilt.github.io/meranda/:does/:not/:match)
+> [kjearno.github.io/meranda/:does/:not/:match](https://kjearno.github.io/meranda/:does/:not/:match)
 
 ## server
 
