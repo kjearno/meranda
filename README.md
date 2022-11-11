@@ -53,28 +53,28 @@ $ npm run deploy
 
 - Home:
 
-  [kjearno.github.io/meranda](https://kjearno.github.io/meranda)
+  [/#/](https://kjearno.github.io/meranda/#/)
 
 - Login:
 
-  [kjearno.github.io/meranda/auth/login](https://kjearno.github.io/meranda/auth/login)
+  [/#/auth/login](https://kjearno.github.io/meranda/#/auth/login)
 
 - Register:
 
-  [kjearno.github.io/meranda/auth/register](https://kjearno.github.io/meranda/auth/register)
+  [/#/auth/register](https://kjearno.github.io/meranda/#/auth/register)
 
 - Profile:
 
-  [kjearno.github.io/meranda/profile](https://kjearno.github.io/meranda/profile)
+  [/#/profile](https://kjearno.github.io/meranda/#/profile)
 
 - Category:
 
-  [kjearno.github.io/meranda/:category](https://kjearno.github.io/meranda/health)
+  [/#/:category](https://kjearno.github.io/meranda/#/health)
 
 - Article:
 
-  [kjearno.github.io/meranda/:category/:article](https://kjearno.github.io/meranda/business/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-1)
+  [/#/:category/:article](https://kjearno.github.io/meranda/#/business/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-1)
 
 - 404:
 
-  [kjearno.github.io/meranda/:does/:not/:match](https://kjearno.github.io/meranda/:does/:not/:match)
+  [/#/:does/:not/:match](https://kjearno.github.io/meranda/#/:does/:not/:match)
