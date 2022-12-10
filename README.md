@@ -14,19 +14,19 @@
 1. Clone the repo:
 
 ```sh
-$ git clone https://github.com/kjearno/meranda.git
+git clone https://github.com/kjearno/meranda.git
 ```
 
 2. Go to the project folder:
 
 ```sh
-$ cd meranda
+cd meranda
 ```
 
 3. Install NPM packages:
 
 ```sh
-$ npm install
+npm install
 ```
 
 ## Usage
@@ -34,19 +34,19 @@ $ npm install
 - Development server:
 
 ```sh
-$ npm start
+npm start
 ```
 
 - Build:
 
 ```sh
-$ npm run build
+npm run build
 ```
 
 - Deploy:
 
 ```sh
-$ npm run deploy
+npm run deploy
 ```
 
 ## Routes
