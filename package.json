@@ -43,8 +43,7 @@
     "yup": "^0.28.3"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint": "^6.8.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -58,7 +57,9 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint": "eslint --ext .jsx --ext .js .",
+    "prettier": "prettier --write ."
   },
   "eslintConfig": {
     "extends": "react-app"
