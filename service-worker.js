@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/meranda/precache-manifest.17a50dc4a309aa1ea68a5b208963bf3e.js"
+  "/meranda/precache-manifest.b6c59e613d5e1c4bba86fe090024c6be.js"
 );
 
 self.addEventListener('message', (event) => {

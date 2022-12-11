@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8b962ac287cfbd2bc92187c55629d56e",
+    "revision": "3b98adb70413e6783e96d887c8029fe7",
     "url": "/meranda/index.html"
   },
   {
-    "revision": "042f17a731915d508373",
+    "revision": "054631f0cca50827891c",
     "url": "/meranda/static/css/2.6dba0ebc.chunk.css"
   },
   {
-    "revision": "74a23d7b6dc738df29c2",
-    "url": "/meranda/static/css/main.ce5d8b84.chunk.css"
+    "revision": "2eb5f38692bd698cf08c",
+    "url": "/meranda/static/css/main.0799dced.chunk.css"
   },
   {
-    "revision": "042f17a731915d508373",
-    "url": "/meranda/static/js/2.88f9b023.chunk.js"
+    "revision": "054631f0cca50827891c",
+    "url": "/meranda/static/js/2.b9834c0c.chunk.js"
   },
   {
     "revision": "a979189b752ee6d79ab214bdfa0c14ea",
-    "url": "/meranda/static/js/2.88f9b023.chunk.js.LICENSE.txt"
+    "url": "/meranda/static/js/2.b9834c0c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "74a23d7b6dc738df29c2",
-    "url": "/meranda/static/js/main.09fc6869.chunk.js"
+    "revision": "2eb5f38692bd698cf08c",
+    "url": "/meranda/static/js/main.cdb1a63d.chunk.js"
   },
   {
     "revision": "d365461a7272a8fb3e86",
