@@ -1,1 +1,0 @@
-export { AuthTemplate } from "./AuthTemplate";

@@ -1,15 +1,11 @@
 import { useSelector } from "react-redux";
-import { selectCategoryById, selectUserById } from "@shared/entities";
 
-export const usePost = ({ categoryId, userId }) => {
-  const category = useSelector((state) =>
-    selectCategoryById(state, categoryId)
-  );
+import { selectUserById } from "@shared/entities";
+
+export const usePost = ({ userId }) => {
   const user = useSelector((state) => selectUserById(state, userId));
 
   return {
-    categorySlug: category.slug,
-    categoryName: category.name,
     author: user.username,
   };
 };

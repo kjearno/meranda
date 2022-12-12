@@ -1,0 +1,9 @@
+@import "@styles/variables";
+
+.sidebar {
+  display: none;
+
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}

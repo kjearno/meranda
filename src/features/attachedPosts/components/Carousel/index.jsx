@@ -22,7 +22,6 @@ export function Carousel() {
       description={post.description}
       photo={post.photo}
       createdAt={post.createdAt}
-      categoryId={post.categoryId}
       userId={post.userId}
     />
   ));

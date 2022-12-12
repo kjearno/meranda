@@ -1,15 +1,17 @@
-import MailIcon from "@material-ui/icons/Mail";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
-import * as Yup from "yup";
 
-import { IconButton } from "@shared/components";
+import { IconButton } from "@components/IconButton";
+import { MailIcon } from "../../assets";
 import { useSubscription } from "../../hooks";
 import styles from "./Subscription.module.scss";
 
 export function Subscription() {
-  const { isLoading, onSubscribe } = useSubscription();
+  const { email, setEmail, isLoading, error, onSubscribe } = useSubscription();
+
+  const handleUserInput = (e) => {
+    setEmail(e.target.value);
+  };
 
   return (
     <Row className={styles.subscription}>
@@ -22,33 +24,20 @@ export function Subscription() {
       </Col>
 
       <Col md={6} lg={5}>
-        <Formik
-          initialValues={{ email: "" }}
-          validateOnBlur={false}
-          validationSchema={Yup.object({
-            email: Yup.string()
-              .email("Invalid email format")
-              .required("Email is required"),
-          })}
-          onSubmit={onSubscribe}
-        >
-          <Form>
-            <div className={styles.formGroup}>
-              <Field
-                className={styles.formField}
-                name="email"
-                type="text"
-                placeholder="Enter your email"
-              />
-
-              <IconButton icon={<MailIcon />} loading={isLoading} />
-            </div>
-
-            <div className={styles.error}>
-              <ErrorMessage name="email" />
-            </div>
-          </Form>
-        </Formik>
+        <form onSubmit={onSubscribe}>
+          <div className={styles.formGroup}>
+            <input
+              className={styles.formField}
+              name="email"
+              type="text"
+              placeholder="Enter your email"
+              onChange={handleUserInput}
+              value={email}
+            />
+            <IconButton icon={<MailIcon />} loading={isLoading} />
+          </div>
+          <div className={styles.error}>{error}</div>
+        </form>
       </Col>
     </Row>
   );

@@ -1,0 +1,16 @@
+@import "@styles/variables";
+
+.header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 2rem;
+}

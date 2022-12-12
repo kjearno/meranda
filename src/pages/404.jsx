@@ -1,7 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { NotFoundError } from "@shared/components";
-import { CommonTemplate } from "@shared/templates";
+
+import { NotFoundError } from "@components/errors";
+import { CommonTemplate } from "@components/templates";
 
 export default function NotFound() {
   return (

@@ -1,8 +1,9 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 
+import { Pagination } from "@components/Pagination";
+import { Section } from "@components/Section";
 import { Post } from "@features/entities";
-import { Pagination, Section } from "@shared/components";
 import { useNews } from "../../hooks";
 import styles from "./News.module.scss";
 
@@ -20,9 +21,7 @@ export function News() {
         slug={post.slug}
         photo={post.photo}
         createdAt={post.createdAt}
-        categoryId={post.categoryId}
         userId={post.userId}
-        metaCategory
       />
     ))
   );

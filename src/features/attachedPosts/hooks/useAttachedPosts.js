@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { IDLE_STATUS, LOADING_STATUS } from "@shared/constants";
 import {
   fetchAttachedPosts,

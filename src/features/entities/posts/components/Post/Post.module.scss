@@ -1,9 +1,25 @@
-@import "@shared/styles/variables";
+@import "@styles/variables";
 
 .post {
   display: flex;
   margin-bottom: 30px;
   font-size: 0.9rem;
+}
+
+.photo {
+  height: 140px;
+  flex: 0 0 150px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    flex: 0 0 200px;
+    order: 2;
+  }
 }
 
 .content {
@@ -18,14 +34,14 @@
   }
 }
 
-.description {
-  margin-bottom: 16px;
-}
-
 .title {
   font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.2;
+}
+
+.description {
+  margin-bottom: 16px;
 }
 
 .title,
@@ -51,21 +67,5 @@
   .date {
     margin-bottom: 0;
     color: #b4b4b4;
-  }
-}
-
-.photo {
-  height: 140px;
-  flex: 0 0 150px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @media (min-width: $breakpoint-md) {
-    flex: 0 0 200px;
-    order: 2;
   }
 }

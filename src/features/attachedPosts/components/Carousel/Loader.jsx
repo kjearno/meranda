@@ -1,5 +1,6 @@
 import { Skeleton } from "@material-ui/lab";
 import React from "react";
+
 import styles from "./Slide.module.scss";
 
 export function Loader() {

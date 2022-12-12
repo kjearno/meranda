@@ -11,7 +11,8 @@ import {
   SUCCEEDED_STATUS,
 } from "@shared/constants";
 import { postEntity } from "@shared/entities";
-import { axios, formatDates } from "@shared/lib";
+import { axios } from "@shared/lib";
+import { formatDates } from "@shared/utils";
 import { fetchComments } from "../comments";
 
 const adapter = createEntityAdapter({

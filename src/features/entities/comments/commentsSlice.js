@@ -11,7 +11,8 @@ import {
   SUCCEEDED_STATUS,
 } from "@shared/constants";
 import { commentEntity } from "@shared/entities";
-import { axios, formatDates } from "@shared/lib";
+import { axios } from "@shared/lib";
+import { formatDates } from "@shared/utils";
 
 const adapter = createEntityAdapter({
   sortComparer: (a, b) => b.id - a.id,

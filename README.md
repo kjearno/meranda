@@ -55,25 +55,9 @@ npm run deploy
 
   [/#/](https://kjearno.github.io/meranda/#/)
 
-- Login:
-
-  [/#/auth/login](https://kjearno.github.io/meranda/#/auth/login)
-
-- Register:
-
-  [/#/auth/register](https://kjearno.github.io/meranda/#/auth/register)
-
-- Profile:
-
-  [/#/profile](https://kjearno.github.io/meranda/#/profile)
-
-- Category:
-
-  [/#/:category](https://kjearno.github.io/meranda/#/health)
-
 - Article:
 
-  [/#/:category/:article](https://kjearno.github.io/meranda/#/business/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-1)
+  [/#/:article](https://kjearno.github.io/meranda/#/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-1)
 
 - 404:
 

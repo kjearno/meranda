@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { noUserPhoto } from "@shared/assets";
+
+import { noUserPhoto } from "@assets";
 import styles from "./AuthorPhoto.module.scss";
 
 export function AuthorPhoto({ photo }) {

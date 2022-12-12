@@ -1,4 +1,5 @@
 import { schema } from "normalizr";
+
 import { postEntity } from "../posts";
 import { userEntity } from "../users";
 

@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import { noPostPhoto } from "@shared/assets";
-import { Error, Loader } from "@shared/components";
+import { noPostPhoto } from "@assets";
+import { Error } from "@components/errors";
+import { Loader } from "@components/Loader";
+import { Comments } from "../Comments";
 import { useArticle } from "../../hooks";
 import { AuthorPhoto } from "./AuthorPhoto";
-import { Comments } from "./Comments";
 import styles from "./Content.module.scss";
 
 export function Content() {
-  const { article, category, user, isLoading, error } = useArticle();
+  const { article, user, isLoading, error } = useArticle();
 
   if (isLoading) {
     return <Loader />;
@@ -31,10 +31,7 @@ export function Content() {
         <div className={styles.meta}>
           <AuthorPhoto photo={user.photo} />
           <div>
-            <p className={styles.info}>
-              {user.username} in{" "}
-              <Link to={`/${category.slug}`}>{category.name}</Link>
-            </p>
+            <p className={styles.info}>by {user.username}</p>
             <p className={styles.date}>{article.createdAt}</p>
           </div>
         </div>

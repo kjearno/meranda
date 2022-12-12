@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+
 import {
   FAILED_STATUS,
   IDLE_STATUS,
@@ -12,10 +13,9 @@ export const selectStatus = (state) => state.subscription.status;
 
 export const subscribe = createAsyncThunk(
   "subscription/subscribe",
-  async ({ values, actions }, { rejectWithValue }) => {
+  async (values, { rejectWithValue }) => {
     try {
       await axios.post("/subscribers", values);
-      actions.resetForm();
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

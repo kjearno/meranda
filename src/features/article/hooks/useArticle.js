@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
-import { useCategoryData } from "@features/category";
 import { IDLE_STATUS, LOADING_STATUS } from "@shared/constants";
 import { selectUserById } from "@shared/entities";
-import { history } from "@shared/lib";
 import {
   errorCleared,
   fetchArticle,
@@ -15,9 +13,9 @@ import {
 import { useArticleData } from "./useArticleData";
 
 export const useArticle = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const { categorySlug, articleSlug } = useParams();
-  const category = useCategoryData();
+  const { articleSlug } = useParams();
   const article = useArticleData();
 
   const user = useSelector((state) => selectUserById(state, article?.userId));
@@ -25,8 +23,8 @@ export const useArticle = () => {
   const status = useSelector(selectStatus);
 
   useEffect(() => {
-    dispatch(fetchArticle({ categorySlug, articleSlug }));
-  }, [dispatch, categorySlug, articleSlug]);
+    dispatch(fetchArticle(articleSlug));
+  }, [dispatch, articleSlug]);
 
   useEffect(() => {
     const unlisten = history.listen(() => {
@@ -36,11 +34,10 @@ export const useArticle = () => {
     });
 
     return unlisten;
-  }, [dispatch, error]);
+  }, [dispatch, error, history]);
 
   return {
     article,
-    category,
     user,
     isLoading:
       (status === IDLE_STATUS && !article) || status === LOADING_STATUS,

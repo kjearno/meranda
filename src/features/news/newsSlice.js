@@ -3,6 +3,7 @@ import {
   createSelector,
   createSlice,
 } from "@reduxjs/toolkit";
+
 import { fetchPosts, selectAllPosts } from "@features/entities";
 import { LOADING_STATUS, SUCCEEDED_STATUS } from "@shared/constants";
 

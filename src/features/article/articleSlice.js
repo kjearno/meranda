@@ -4,14 +4,14 @@ import {
   createSlice,
 } from "@reduxjs/toolkit";
 
-import { fetchCategory, fetchPost, selectAllPosts } from "@features/entities";
+import { fetchPost, selectAllPosts } from "@features/entities";
 import {
   FAILED_STATUS,
   IDLE_STATUS,
   LOADING_STATUS,
   SUCCEEDED_STATUS,
 } from "@shared/constants";
-import { NotFoundError } from "@shared/lib";
+import { NotFoundError } from "@shared/utils";
 
 export const selectError = (state) => state.article.data.error;
 export const selectStatus = (state) => state.article.data.status;
@@ -23,13 +23,7 @@ export const selectArticle = createSelector(
 
 export const fetchArticle = createAsyncThunk(
   "article/fetchArticle",
-  async ({ categorySlug, articleSlug }, { dispatch }) => {
-    const category = await dispatch(fetchCategory(categorySlug));
-
-    if (category.error) {
-      throw category.error;
-    }
-
+  async (articleSlug, { dispatch }) => {
     const res = await dispatch(fetchPost(articleSlug));
 
     if (!res.payload) {
@@ -37,7 +31,7 @@ export const fetchArticle = createAsyncThunk(
     }
   },
   {
-    condition: ({ articleSlug }, { getState }) => {
+    condition: (articleSlug, { getState }) => {
       const article = selectArticle(getState(), articleSlug);
 
       if (article) {
