@@ -2,8 +2,6 @@
 
 **DEMO: [kjearno.github.io/meranda](https://kjearno.github.io/meranda)**
 
-![](https://user-images.githubusercontent.com/39556179/120553807-62255000-c412-11eb-92ba-89241b02be0b.png)
-
 ## Features
 
 - React
