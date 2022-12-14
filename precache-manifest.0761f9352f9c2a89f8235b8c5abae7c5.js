@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aeeeb21cf5bfead8547aefeebca3bad4",
+    "revision": "8dc9ee6dd8ac60b30d922d22ae5b2301",
     "url": "/meranda/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/meranda/static/css/2.9d1aba75.chunk.css"
   },
   {
-    "revision": "3c371d2a6ed4a488eacc",
-    "url": "/meranda/static/css/main.57fd18d7.chunk.css"
+    "revision": "60452c8bfaf87cecd509",
+    "url": "/meranda/static/css/main.90dd3283.chunk.css"
   },
   {
     "revision": "ddb7e4d9aff609c6152b",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/meranda/static/js/2.c5562f73.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3c371d2a6ed4a488eacc",
+    "revision": "60452c8bfaf87cecd509",
     "url": "/meranda/static/js/main.65802814.chunk.js"
   },
   {

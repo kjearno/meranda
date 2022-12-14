@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/meranda/static/css/main.57fd18d7.chunk.css",
+    "main.css": "/meranda/static/css/main.90dd3283.chunk.css",
     "main.js": "/meranda/static/js/main.65802814.chunk.js",
     "main.js.map": "/meranda/static/js/main.65802814.chunk.js.map",
     "runtime-main.js": "/meranda/static/js/runtime-main.68d20f75.js",
@@ -9,10 +9,10 @@
     "static/js/2.c5562f73.chunk.js": "/meranda/static/js/2.c5562f73.chunk.js",
     "static/js/2.c5562f73.chunk.js.map": "/meranda/static/js/2.c5562f73.chunk.js.map",
     "index.html": "/meranda/index.html",
-    "precache-manifest.b6b09bd905fc2e96c52e4f2154d58ee5.js": "/meranda/precache-manifest.b6b09bd905fc2e96c52e4f2154d58ee5.js",
+    "precache-manifest.0761f9352f9c2a89f8235b8c5abae7c5.js": "/meranda/precache-manifest.0761f9352f9c2a89f8235b8c5abae7c5.js",
     "service-worker.js": "/meranda/service-worker.js",
     "static/css/2.9d1aba75.chunk.css.map": "/meranda/static/css/2.9d1aba75.chunk.css.map",
-    "static/css/main.57fd18d7.chunk.css.map": "/meranda/static/css/main.57fd18d7.chunk.css.map",
+    "static/css/main.90dd3283.chunk.css.map": "/meranda/static/css/main.90dd3283.chunk.css.map",
     "static/js/2.c5562f73.chunk.js.LICENSE.txt": "/meranda/static/js/2.c5562f73.chunk.js.LICENSE.txt",
     "static/media/mail.740e7858.svg": "/meranda/static/media/mail.740e7858.svg",
     "static/media/slick-theme.css": "/meranda/static/media/slick.f97e3bbf.svg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.68d20f75.js",
     "static/css/2.9d1aba75.chunk.css",
     "static/js/2.c5562f73.chunk.js",
-    "static/css/main.57fd18d7.chunk.css",
+    "static/css/main.90dd3283.chunk.css",
     "static/js/main.65802814.chunk.js"
   ]
 }
